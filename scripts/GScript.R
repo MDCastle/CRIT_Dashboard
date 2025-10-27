@@ -4,9 +4,9 @@ library(magrittr)
 library(lubridate)
 library(httpuv)
 
-#update to charging
+#update to charging from attendance
 
-attendance_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=31993042#gid=31993042"
+#attendance_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=31993042#gid=31993042"
 
 charging_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=843633111#gid=843633111"
 
@@ -14,11 +14,11 @@ session_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD
 
 #gs4_auth()
 
-attendanceDat<-read_sheet(attendance_url, sheet="attendance")
-chargingDat<-read_sheet(charging_url , sheet = "charging")
+#attendanceDat<-read_sheet(attendance_url, sheet="attendance")
+chargingDat<-read_sheet(charging_url , sheet = "charging" , col_types = "cTcccccclcccccccccnnnnnnnnnnTccc")
 sessionDat<-read_sheet(session_url, sheet="session_info")
 
-cleanAttendance<-attendanceDat
+#cleanAttendance<-attendanceDat
 cleanCharging<-chargingDat
 cleanSession<-sessionDat
 
@@ -37,7 +37,7 @@ cleanSession<-sessionDat
 #Clean Variables
 
 #programme
-cleanAttendance %<>%
+cleanCharging %<>%
   mutate(programme = case_when(
     programme == "BBSRC" ~ "BBSRC DTP",
     programme == "NERC" ~ "NERC DTP",
@@ -47,6 +47,8 @@ cleanAttendance %<>%
     programme == "SBS MPhil B" ~ "SBS MPhil",
     programme == "BTN" ~ "BTN MPhil",
     programme == "CATS" ~ "CATS MPhil",
+    programme == "CSCI" ~ "Stem Cell MPhil",
+    programme == "SCM MPhil (CBU)" ~ "Cog Neuro MPhil",
     programme == "Dev Biol" ~ "Dev Biol MPhil",
     programme == "Pharmacology PG" ~ "Pharm PG",
     programme == "Pharmacology UG" ~ "Pharm UG",
@@ -58,70 +60,47 @@ cleanAttendance %<>%
   ))
 
 
-
 #charge_status
-cleanAttendance %<>%
+cleanCharging %<>%
   mutate(charge_status = case_when(
     charge_status == "internal" ~ "academic - Cambridge",
     charge_status == "external" ~ "academic - External",
     .default = charge_status
   ))
 
-#Clean Naming for event_title
-cleanAttendance %<>%
-  mutate(event_title = case_when(
-    event_title == "Advanced statistics in Python" ~ "Advanced statistics",
-    event_title == "Advanced statistics in R" ~ "Advanced statistics",
-    event_title == "An Introduction to Machine Learning" ~ "Introduction to Machine Learning",
-    event_title == "Analysis of expression proteomics data in R" ~ "Expression Proteomics analysis in R",
-    event_title == "BTN MPhil Core Assessment Exam" ~ "Core Statistics Exam",
-    event_title == "SBS MPhil stats exam (5 x pathways)" ~ "Core Statistics Exam",
-    event_title == "SBS MPhil stats exam (IBaMI)" ~ "Core Statistics Exam",
-    event_title == "SBS MPhil stats exam (SSD IBaMI)" ~ "Core Statistics Exam",
-    event_title == "SBS MPhil stats exam (SSD)" ~ "Core Statistics Exam",
-    event_title == "SCM MPhil stats exam (main)" ~ "Core Statistics Exam",
-    event_title == "SCM MPhil stats exam (SSD)" ~ "Core Statistics Exam",
-    event_title == "Dev Biol stats exam" ~ "Core Statistics Exam",
-    event_title == "Core statistics in Python" ~ "Core Statistics",
-    event_title == "Core statistics in R" ~ "Core Statistics",
-    event_title == "Core statistics in R or Python" ~ "Core Statistics",
-    event_title == "Experience Postgraduate Life Sciences" ~ "Using R and effectively communicating data",
-    event_title == "Expression Proteomics analysis in R" ~ "Expression proteomics analysis in R",
-    event_title == "Fundamentals of stats/AI link" ~ "Fundamentals of Statistics",
-    event_title == "Intro to R drop-in" ~ "Data Analysis in R clinic",
-    event_title == "Introducing experimental design" ~ "Experimental design for statistical analysis",
-    event_title == "Introducing generalised linear models" ~ "Generalised linear models",
-    event_title == "Introducing linear mixed effect models" ~ "Linear mixed effects models",
-    event_title == "Introducing visual data communication" ~ "Visual data communication",
-    event_title == "Introduction to Metabolomics" ~ "Metabolomics data analysis",
-    event_title == "Introduction to Metagenomics" ~ "Metagenomics data analysis",
-    event_title == "Introduction to Python" ~ "Data Analysis in Python",
-    event_title == "Introduction to Python drop-in session" ~ "Data Analysis in Python clinic",
-    event_title == "Introduction to R" ~ "Data Analysis in R",
-    event_title == "Introduction to R drop-in session" ~ "Data Analysis in R clinic",
-    event_title == "Introduction to Statistical Analysis" ~ "Fundamentals of Statistics",
-    event_title == "Reproducible Research and Experimental Design" ~ "Reproducible research in R",
-    event_title == "Reproducible Research in R" ~ "Reproducible research in R",
-    event_title == "SBS MPhil post-exam Q&A" ~ "Core Statistics Exam clinic",
-    event_title == "Working with Bacterial Genomes" ~ "Working with bacterial genomes",
-    .default = event_title
-  ))
-    
+#event_title
+event_name_lookup<-read_csv("data_raw/251027_event_title.csv")
+nName<-length(event_name_lookup$old_name)
+for(iName in 1:nName){
+  cleanCharging %<>%
+    mutate(event_title = case_when(
+      event_title == event_name_lookup$old_name[iName] ~ event_name_lookup$new_name[iName],
+      .default = event_title
+    ))
+}
+
+
+#remove all cancelled bookings
+cleanCharging %<>%
+  filter(paid_status != "cancelled")
 
 
 #Make New Variables
 
+
 #make Course_type Column
 #default values are open, cohort or special event
-cleanAttendance %<>%
+cleanCharging %<>%
   mutate(course_type = case_when(
     programme == "Open" ~ "open",
     programme == "Special event" ~ "special event",
     .default = "cohort"))
 
+
+
 #make Session_type Column
 #default values are teaching, exam or clinic
-cleanAttendance %<>%
+cleanCharging %<>%
   mutate(session_type = case_when(
     event_title == "Core Statistics exam" ~ "exam",
     event_title == "Data Analysis in R clinic" ~ "clinic",
@@ -132,39 +111,12 @@ cleanAttendance %<>%
 
 
 
-#Fix Individual records
-
-
-#Remove Jonathan Aaron (no other information apart from name)
-cleanAttendance %<>% filter(participant != "Jonathan Aaron" | event_id != "20221014_IntroR")
-
-#Remove S. Camara (on waiting list but absent so sholdn't be on here at all)
-cleanAttendance %<>% filter (booking_status != "waiting" | attn_status != "absent")
-
-#fix booking status for Saur Hajiev, E.C. Harding
-cleanAttendance %<>% 
-  mutate(booking_status = case_when(
-    participant == "Saur Hajiev" & event_id== "20240617_bioinfo-unix2" ~ "booked",
-    participant == "Dr E.C. Harding" & event_id== "20220912_IntroPython" ~ "booked",
-    participant == "Aisha Al Amri" & event_id== "20230112_UNIX" ~ "not booked",
-    booking_status == "offered" ~ "booked",
-    booking_status == "provisional" ~ "booked",
-    .default = booking_status
+#Fix individual records
+cleanCharging %<>%
+  mutate(attended = case_when(
+    crsid == "lw708" & event_id == "20240301_ProgML" ~ TRUE,
+    .default = attended
   ))
-
-#fix charge_status
-cleanAttendance %<>%
-  mutate(charge_status = case_when(
-    event_id == "20230918_StatsSchool" & participant == "Elisabeth Murphy" ~ "academic - External",
-    event_id == "20230918_StatsSchool" & participant == "Katherine Symons" ~ "academic - Cambridge",
-    event_id == "20230918_StatsSchool" & participant == "Max Koko" ~ "student",
-    event_id == "20230918_StatsSchool" & participant == "Muruj Ishaq Tukruni" ~ "academic - External",
-    charge_status == "no_charge" & participant == "Laura Millett" ~ "academic - External",
-    charge_status == "no_charge" & participant == "Laura Mincarelli" ~ "academic - External",
-    .default = charge_status
-  ))
-
-
 
 
 
@@ -219,74 +171,31 @@ yearSel <- c("AY2223" , "AY2324" , "AY2425")
 monthSel <- 1:12 ; myperiod="Full Year"
 #monthSel <- c(3,4,5,6,7,8) ; myperiod="Mar - Aug" %>%
 
-filterAttendance<-cleanAttendance %>%
+filterCharging<-cleanCharging %>%
   filter(ay %in% yearSel) %>%
-  filter(month(event_date) %in% monthSel) #%>%
-  #filter(primary_inst_school == "School of Clinical Medicine")
+  filter(month(event_date) %in% monthSel)
+
 
 
 filterEvent<-cleanEvent %>%
   filter(ay %in% yearSel) %>%
   filter(month(event_date) %in% monthSel)
 
-filterCharging<-cleanCharging %>%
-  filter(ay %in% yearSel) %>%
-  filter(month(event_date) %in% monthSel)
 
 # Exploration -------------------------------------------------------------
 
 
 
-cleanAttendance %>%
-  group_by(course_type) %>%
-  summarise(n())
 
-
-cleanAttendance %>% filter(is.na(charge_status)) %>% view()
-
-
-tAtt<-filterAttendance %>%
-  filter(ay == "AY2425") %>%
-  group_by(event_id) %>%
-  summarise(attn = n())
-
-tChar<-filterCharging %>%
-  filter(ay == "AY2425") %>%
-  group_by(event_id) %>%
-  summarise(charn=n())
-
-full_join(tAtt,tChar , by = "event_id") %>% view()
-
-
-tfAtt<-filterAttendance %>%
-  filter(event_id == "20221010_BBSRC_IntroR")
-
-tfCha<-filterCharging %>%
-  filter(event_id == "20221010_BBSRC_IntroR")
-
-full_join(tfAtt , tfCha , by = "participant") %>% view()
 
 # Visuals ---------------------------------------------------------
 
 
 # Bookings ----------------------------------------------------------
 ## Total
-filterAttendance %>%
-  filter(session_type == "teaching") %>%
-  group_by(ay) %>%
-  summarise(Bookings=n()) %>%
-  mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
-  ggplot(aes(x=ay , y=Bookings , label=paste("atop(" , Bookings , "," , "paste(",Change,",'%')" , ")"))) + 
-  geom_bar(stat="identity" , fill="seagreen") +
-  geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
-  labs(
-    title = paste0("Total Bookings: ",myperiod),
-    y = "Bookings",
-    x = "Academic Year"
-  )
-
-
 filterCharging %>%
+  filter(session_type == "teaching") %>%
+  filter(paid_status != "cancelled") %>%
   group_by(ay) %>%
   summarise(Bookings=n()) %>%
   mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
@@ -298,10 +207,11 @@ filterCharging %>%
     y = "Bookings",
     x = "Academic Year"
   )
+
 
 
 ## Cohort vs Open
-filterAttendance %>%
+filterCharging %>%
   filter(session_type == "teaching") %>%
   mutate(course_type=factor(course_type)) %>%
   group_by(ay , course_type , .drop = FALSE) %>%
@@ -322,7 +232,7 @@ filterAttendance %>%
 
 
 ## Participant Type
-filterAttendance %>%
+filterCharging %>%
   filter(session_type == "teaching") %>%
   group_by(ay , charge_status) %>%
   summarise(Bookings=n()) %>%
@@ -346,7 +256,7 @@ filterAttendance %>%
 
 # Attendees ---------------------------------------------------------------
 #Total
-filterAttendance %>%
+filterCharging %>%
   filter(attn_status == "attended" | attn_status == "async") %>%
   filter(session_type == "teaching") %>%
   group_by(ay) %>%
