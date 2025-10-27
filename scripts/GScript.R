@@ -102,10 +102,10 @@ cleanCharging %<>%
 #default values are teaching, exam or clinic
 cleanCharging %<>%
   mutate(session_type = case_when(
-    event_title == "Core Statistics exam" ~ "exam",
-    event_title == "Data Analysis in R clinic" ~ "clinic",
-    event_title == "Data Analysis in Python clinic" ~ "clinic",
-    event_title == "Core Statistics Exam clinic" ~ "clinic",
+    event_title == "Core statistics exam" ~ "exam",
+    event_title == "Data analysis in R clinic" ~ "clinic",
+    event_title == "Data analysis in Python clinic" ~ "clinic",
+    event_title == "Core statistics exam clinic" ~ "clinic",
     .default = "teaching"
   ))
 
@@ -195,7 +195,6 @@ filterEvent<-cleanEvent %>%
 ## Total
 filterCharging %>%
   filter(session_type == "teaching") %>%
-  filter(paid_status != "cancelled") %>%
   group_by(ay) %>%
   summarise(Bookings=n()) %>%
   mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
@@ -257,10 +256,10 @@ filterCharging %>%
 # Attendees ---------------------------------------------------------------
 #Total
 filterCharging %>%
-  filter(attn_status == "attended" | attn_status == "async") %>%
+  filter(attended == TRUE) %>%
   filter(session_type == "teaching") %>%
   group_by(ay) %>%
-  summarise(Attendees=sum(attn_status=="attended" | attn_status=="async")) %>%
+  summarise(Attendees=sum(attended == TRUE)) %>%
   mutate(Change = floor((Attendees/first(Attendees) - 1 )*100)) %>%
   ggplot(aes(x=ay , y=Attendees , label=paste("atop(" , Attendees , "," , "paste(",Change,",'%')" , ")"))) + 
   geom_bar(stat="identity" , fill="skyblue3") + 
@@ -273,8 +272,8 @@ filterCharging %>%
 
 
 ## Cohort vs Open
-filterAttendance %>%
-  filter(attn_status == "attended" | attn_status == "async") %>%
+filterCharging %>%
+  filter(attended = TRUE) %>%
   filter(session_type == "teaching") %>%
   mutate(course_type=factor(course_type)) %>%
   group_by(ay , course_type , .drop = FALSE) %>%
@@ -295,9 +294,8 @@ filterAttendance %>%
 
 
 ## Participant Type
-filterAttendance %>%
-  filter(attn_status == "attended" | attn_status == "async") %>%
-  filter(course_type != "Special event") %>%
+filterCharging %>%
+  filter(attended == TRUE) %>%
   filter(session_type == "teaching") %>%
   group_by(ay , charge_status) %>%
   summarise(Attendees=n()) %>%
@@ -321,10 +319,10 @@ filterAttendance %>%
 
 # Attendance Rates --------------------------------------------------------
 ## Overall 
-filterAttendance %>%
+filterCharging %>%
   filter(session_type == "teaching") %>%
   group_by(ay) %>%
-  summarise(Bookings=n() , Attendees=sum(attn_status=="attended" | attn_status=="async" , na.rm=TRUE) , Attendance = Attendees/Bookings) %>%
+  summarise(Bookings=n() , Attendees=sum(attended == TRUE) , Attendance = Attendees/Bookings) %>%
   ggplot(aes(x=ay , y=Attendance , label=paste( "paste(" , round(Attendance*100,0) , ",'%')"))) + 
   geom_bar(stat="identity" , fill="wheat") + 
   geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
@@ -338,12 +336,12 @@ filterAttendance %>%
 
 
 ## Attendance by year and course type
-filterAttendance %>%
+filterCharging %>%
   filter(session_type == "teaching") %>%
   mutate(ay=factor(ay)) %>%
   mutate(course_type=factor(course_type)) %>%
   group_by(ay,course_type, .drop=FALSE) %>%
-  summarise(Bookings=n() , Attendees=sum(attn_status=="attended" | attn_status=="async" , na.rm=TRUE) , Attendance = Attendees/Bookings) %>%
+  summarise(Bookings=n() , Attendees=sum(attended == TRUE) , Attendance = Attendees/Bookings) %>%
   ggplot(aes(fill=ay , y=Attendance , x=course_type , label=paste( "atop(paste(" , round(Attendance*100,0) , ",'%'),)"))) +
   geom_bar(stat="identity" , position="dodge") +
   geom_text(parse = TRUE , position = position_dodge(width=0.9)) +
@@ -357,12 +355,12 @@ filterAttendance %>%
   )
 
 ## Attendance by year and cohort
-filterAttendance %>%
+filterCharging %>%
   filter(session_type == "teaching") %>%
   mutate(ay=factor(ay)) %>%
   mutate(programme=factor(programme)) %>%
   group_by(ay,programme, .drop=FALSE) %>%
-  summarise(Bookings=n() , Attendees=sum(attn_status=="attended" | attn_status=="async" , na.rm=TRUE) , Attendance = Attendees/Bookings) %>%
+  summarise(Bookings=n() , Attendees=sum(attended == TRUE) , Attendance = Attendees/Bookings) %>%
   ggplot(aes(y=Attendance , x=ay , fill=ay , label=paste( "atop(, paste(" , round(Attendance*100,0) , ",'%'))"))) +
   geom_bar(stat="identity") +
   geom_text(parse = TRUE , position = position_dodge(width=0.9)) +
