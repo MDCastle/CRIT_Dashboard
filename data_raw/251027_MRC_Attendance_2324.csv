@@ -1,0 +1,86 @@
+event_id,crsid,participant,attended
+20231010_MRC_IntroR,av630,Anna Vlachaki,TRUE
+20231010_MRC_IntroR,bjc71,Benjamin Chidiac,FALSE
+20231010_MRC_IntroR,brl34,Bethan Lloyd Owen,TRUE
+20231010_MRC_IntroR,ccbt2,Clotilde Tournerie,TRUE
+20231010_MRC_IntroR,cjh253,Cyril Haller,TRUE
+20231010_MRC_IntroR,elb92,Ella Bishop,TRUE
+20231010_MRC_IntroR,gew43,Grace West,TRUE
+20231010_MRC_IntroR,jmt97,Jasstine Mae Tabbada,TRUE
+20231010_MRC_IntroR,jjh92,Joseph Henderson,TRUE
+20231010_MRC_IntroR,kmk45,Karolina Kwiatkowska,TRUE
+20231010_MRC_IntroR,lw777,Lianne Wu,TRUE
+20231010_MRC_IntroR,nh608,Nick Hirschmüller,TRUE
+20231010_MRC_IntroR,nalh2,Nora Haanaes,TRUE
+20231010_MRC_IntroR,os443,Omar Shabana,TRUE
+20231010_MRC_IntroR,tmsv2,Teresa Von Linde,TRUE
+20231010_MRC_IntroR,ye234,Yasmine El Hajj,TRUE
+20231010_MRC_IntroR,yw691,Yunxiao Wang,TRUE
+20231024_MRC_CS,av630,Anna Vlachaki,TRUE
+20231024_MRC_CS,bjc71,Benjamin Chidiac,TRUE
+20231024_MRC_CS,brl34,Bethan Lloyd Owen,TRUE
+20231024_MRC_CS,ccbt2,Clotilde Tournerie,TRUE
+20231024_MRC_CS,cjh253,Cyril Haller,FALSE
+20231024_MRC_CS,elb92,Ella Bishop,TRUE
+20231024_MRC_CS,gew43,Grace West,TRUE
+20231024_MRC_CS,jmt97,Jasstine Mae Tabbada,TRUE
+20231024_MRC_CS,jjh92,Joseph Henderson,TRUE
+20231024_MRC_CS,kmk45,Karolina Kwiatkowska,TRUE
+20231024_MRC_CS,lw777,Lianne Wu,TRUE
+20231024_MRC_CS,nh608,Nick Hirschmüller,TRUE
+20231024_MRC_CS,nalh2,Nora Haanaes,TRUE
+20231024_MRC_CS,os443,Omar Shabana,TRUE
+20231024_MRC_CS,tmsv2,Teresa Von Linde,TRUE
+20231024_MRC_CS,ye234,Yasmine El Hajj,TRUE
+20231024_MRC_CS,yw691,Yunxiao Wang,TRUE
+20240112_MRCU_Dataviz,adymaa2,Abdulwahab Alshallal,TRUE
+20240112_MRCU_Dataviz,cy334,Chentianyi Yang,FALSE
+20240112_MRCU_Dataviz,gb718,Georgia Bozianu,FALSE
+20240112_MRCU_Dataviz,hrl34,Helen Little,TRUE
+20240112_MRCU_Dataviz,jaw209,James Woodward,FALSE
+20240112_MRCU_Dataviz,jyl51,Jia Yi Lee,TRUE
+20240112_MRCU_Dataviz,kt521,Kateryna Tyzhuk,TRUE
+20240112_MRCU_Dataviz,lrh40,Leah Hurst,FALSE
+20240112_MRCU_Dataviz,ech76,Libby Haynes,TRUE
+20240112_MRCU_Dataviz,lsc46,Louise Cooper,TRUE
+20240112_MRCU_Dataviz,lg702,Lukas Gunschera,FALSE
+20240112_MRCU_Dataviz,mmmc2,Marguerite Colin,FALSE
+20240112_MRCU_Dataviz,ns852,Nazmul Sarwar,TRUE
+20240112_MRCU_Dataviz,nk655,Nikita Kozhushko,FALSE
+20240112_MRCU_Dataviz,td502,T. Deng,FALSE
+20240112_MRCU_Dataviz,tc626,Thomas Chen,FALSE
+20240112_MRCU_Dataviz,vk334,Vitalina Kirgizova,FALSE
+20240116_MRC_AS,av630,Anna Vlachaki,TRUE
+20240116_MRC_AS,bjc71,Benjamin Chidiac,TRUE
+20240116_MRC_AS,brl34,Bethan Lloyd Owen,TRUE
+20240116_MRC_AS,ccbt2,Clotilde Tournerie,TRUE
+20240116_MRC_AS,cjh253,Cyril Haller,FALSE
+20240116_MRC_AS,elb92,Ella Bishop,TRUE
+20240116_MRC_AS,gew43,Grace West,TRUE
+20240116_MRC_AS,jmt97,Jasstine Mae Tabbada,FALSE
+20240116_MRC_AS,jjh92,Joseph Henderson,FALSE
+20240116_MRC_AS,kmk45,Karolina Kwiatkowska,FALSE
+20240116_MRC_AS,lw777,Lianne Wu,TRUE
+20240116_MRC_AS,nh608,Nick Hirschmüller,TRUE
+20240116_MRC_AS,nalh2,Nora Haanaes,TRUE
+20240116_MRC_AS,os443,Omar Shabana,TRUE
+20240116_MRC_AS,tmsv2,Teresa Von Linde,TRUE
+20240116_MRC_AS,ye234,Yasmine El Hajj,TRUE
+20240116_MRC_AS,yw691,Yunxiao Wang,TRUE
+202402020_MRC_RR,av630,Anna Vlachaki,FALSE
+202402020_MRC_RR,bjc71,Benjamin Chidiac,TRUE
+202402020_MRC_RR,brl34,Bethan Lloyd Owen,TRUE
+202402020_MRC_RR,ccbt2,Clotilde Tournerie,FALSE
+202402020_MRC_RR,cjh253,Cyril Haller,FALSE
+202402020_MRC_RR,elb92,Ella Bishop,FALSE
+202402020_MRC_RR,gew43,Grace West,TRUE
+202402020_MRC_RR,jmt97,Jasstine Mae Tabbada,FALSE
+202402020_MRC_RR,jjh92,Joseph Henderson,FALSE
+202402020_MRC_RR,kmk45,Karolina Kwiatkowska,FALSE
+202402020_MRC_RR,lw777,Lianne Wu,FALSE
+202402020_MRC_RR,nh608,Nick Hirschmüller,TRUE
+202402020_MRC_RR,nalh2,Nora Haanaes,TRUE
+202402020_MRC_RR,os443,Omar Shabana,TRUE
+202402020_MRC_RR,tmsv2,Teresa Von Linde,TRUE
+202402020_MRC_RR,ye234,Yasmine El Hajj,TRUE
+202402020_MRC_RR,yw691,Yunxiao Wang,TRUE

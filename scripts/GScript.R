@@ -119,6 +119,15 @@ cleanCharging %<>%
   ))
 
 
+mrc_2324_attendance<-read_csv("data_raw/251027_MRC_Attendance_2324.csv")
+nMRC<-length(mrc_2324_attendance$event_id)
+for(iMRC in 1:nMRC){
+  cleanCharging %<>%
+    mutate(attended = case_when(
+      event_id == mrc_2324_attendance$event_id[iMRC] &  (participant == mrc_2324_attendance$participant[iMRC] | crsid == mrc_2324_attendance$crsid[iMRC]) ~ mrc_2324_attendance$attended[iMRC],
+      .default = attended
+    ))
+}
 
 # cleanEvent ------------------------------------------------------------
 
@@ -185,7 +194,8 @@ filterEvent<-cleanEvent %>%
 # Exploration -------------------------------------------------------------
 
 
-
+cleanCharging %>%
+  filter(programme == "MRC DTP") %>% view
 
 
 # Visuals ---------------------------------------------------------
