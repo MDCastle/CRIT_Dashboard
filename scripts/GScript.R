@@ -8,14 +8,18 @@ library(httpuv)
 
 attendance_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=31993042#gid=31993042"
 
+charging_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=843633111#gid=843633111"
+
 session_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=1558804232#gid=1558804232"
 
 #gs4_auth()
 
 attendanceDat<-read_sheet(attendance_url, sheet="attendance")
+chargingDat<-read_sheet(charging_url , sheet = "charging")
 sessionDat<-read_sheet(session_url, sheet="session_info")
 
 cleanAttendance<-attendanceDat
+cleanCharging<-chargingDat
 cleanSession<-sessionDat
 
 #need to think more clearly about what dat I actually want here
@@ -225,8 +229,12 @@ filterEvent<-cleanEvent %>%
   filter(ay %in% yearSel) %>%
   filter(month(event_date) %in% monthSel)
 
+filterCharging<-cleanCharging %>%
+  filter(ay %in% yearSel) %>%
+  filter(month(event_date) %in% monthSel)
 
 # Exploration -------------------------------------------------------------
+
 
 
 cleanAttendance %>%
@@ -235,6 +243,29 @@ cleanAttendance %>%
 
 
 cleanAttendance %>% filter(is.na(charge_status)) %>% view()
+
+
+tAtt<-filterAttendance %>%
+  filter(ay == "AY2425") %>%
+  group_by(event_id) %>%
+  summarise(attn = n())
+
+tChar<-filterCharging %>%
+  filter(ay == "AY2425") %>%
+  group_by(event_id) %>%
+  summarise(charn=n())
+
+full_join(tAtt,tChar , by = "event_id") %>% view()
+
+
+tfAtt<-filterAttendance %>%
+  filter(event_id == "20221010_BBSRC_IntroR")
+
+tfCha<-filterCharging %>%
+  filter(event_id == "20221010_BBSRC_IntroR")
+
+full_join(tfAtt , tfCha , by = "participant") %>% view()
+
 # Visuals ---------------------------------------------------------
 
 
@@ -255,10 +286,25 @@ filterAttendance %>%
   )
 
 
+filterCharging %>%
+  group_by(ay) %>%
+  summarise(Bookings=n()) %>%
+  mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
+  ggplot(aes(x=ay , y=Bookings , label=paste("atop(" , Bookings , "," , "paste(",Change,",'%')" , ")"))) + 
+  geom_bar(stat="identity" , fill="seagreen") +
+  geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
+  labs(
+    title = paste0("Total Bookings: ",myperiod),
+    y = "Bookings",
+    x = "Academic Year"
+  )
+
+
 ## Cohort vs Open
 filterAttendance %>%
   filter(session_type == "teaching") %>%
-  group_by(ay , course_type) %>%
+  mutate(course_type=factor(course_type)) %>%
+  group_by(ay , course_type , .drop = FALSE) %>%
   summarise(Bookings=n()) %>%
   ungroup() %>%
   group_by(course_type) %>%
@@ -301,9 +347,10 @@ filterAttendance %>%
 # Attendees ---------------------------------------------------------------
 #Total
 filterAttendance %>%
+  filter(attn_status == "attended" | attn_status == "async") %>%
   filter(session_type == "teaching") %>%
   group_by(ay) %>%
-  summarise(Attendees=sum(attn_status=="attended" | attn_status=="async", na.rm=TRUE)) %>%
+  summarise(Attendees=sum(attn_status=="attended" | attn_status=="async")) %>%
   mutate(Change = floor((Attendees/first(Attendees) - 1 )*100)) %>%
   ggplot(aes(x=ay , y=Attendees , label=paste("atop(" , Attendees , "," , "paste(",Change,",'%')" , ")"))) + 
   geom_bar(stat="identity" , fill="skyblue3") + 
@@ -318,12 +365,12 @@ filterAttendance %>%
 ## Cohort vs Open
 filterAttendance %>%
   filter(attn_status == "attended" | attn_status == "async") %>%
-  filter(course_type != "Special event") %>%
   filter(session_type == "teaching") %>%
-  group_by(ay , course_type) %>%
+  mutate(course_type=factor(course_type)) %>%
+  group_by(ay , course_type , .drop = FALSE) %>%
   summarise(Attendees=n()) %>%
   ungroup() %>%
-  group_by(course_type) %>%
+  group_by(course_type , .drop = FALSE) %>%
   arrange(course_type, ay) %>%
   mutate(Change = floor((Attendees/first(Attendees) - 1 )*100)) %>%
   ggplot(aes(x=course_type , y=Attendees , fill=ay , label=paste("atop(" , Attendees , "," , "paste(",Change,",'%')" , ")"))) +
@@ -365,7 +412,6 @@ filterAttendance %>%
 # Attendance Rates --------------------------------------------------------
 ## Overall 
 filterAttendance %>%
-  filter(booking_status == "booked" | booking_status == "booked late" | booking_status == "joined" | attn_status=="attended" | attn_status=="async") %>%
   filter(session_type == "teaching") %>%
   group_by(ay) %>%
   summarise(Bookings=n() , Attendees=sum(attn_status=="attended" | attn_status=="async" , na.rm=TRUE) , Attendance = Attendees/Bookings) %>%
@@ -383,9 +429,7 @@ filterAttendance %>%
 
 ## Attendance by year and course type
 filterAttendance %>%
-  filter(booking_status == "booked" | booking_status == "booked late" | booking_status == "joined" | attn_status=="attended" | attn_status=="async") %>%
   filter(session_type == "teaching") %>%
-  filter(course_type != "Special event") %>%
   mutate(ay=factor(ay)) %>%
   mutate(course_type=factor(course_type)) %>%
   group_by(ay,course_type, .drop=FALSE) %>%
@@ -404,9 +448,7 @@ filterAttendance %>%
 
 ## Attendance by year and cohort
 filterAttendance %>%
-  filter(booking_status == "booked" | booking_status == "booked late" | booking_status == "joined" | attn_status=="attended" | attn_status=="async") %>%
   filter(session_type == "teaching") %>%
-  filter(course_type != "Special event") %>%
   mutate(ay=factor(ay)) %>%
   mutate(programme=factor(programme)) %>%
   group_by(ay,programme, .drop=FALSE) %>%
