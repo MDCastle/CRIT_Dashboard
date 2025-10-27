@@ -119,15 +119,17 @@ cleanCharging %<>%
   ))
 
 
-mrc_2324_attendance<-read_csv("data_raw/251027_MRC_Attendance_2324.csv")
-nMRC<-length(mrc_2324_attendance$event_id)
-for(iMRC in 1:nMRC){
+attendance_fix<-read_csv("data_raw/251027_Attendance_Fix.csv")
+nAttend<-length(attendance_fix$event_id)
+for(iAttend in 1:nAttend){
   cleanCharging %<>%
     mutate(attended = case_when(
-      event_id == mrc_2324_attendance$event_id[iMRC] &  (participant == mrc_2324_attendance$participant[iMRC] | crsid == mrc_2324_attendance$crsid[iMRC]) ~ mrc_2324_attendance$attended[iMRC],
+      event_id == attendance_fix$event_id[iAttend] &  (participant == attendance_fix$participant[iAttend] | crsid == attendance_fix$crsid[iAttend]) ~ attendance_fix$attended[iAttend],
       .default = attended
     ))
 }
+
+
 
 # cleanEvent ------------------------------------------------------------
 
@@ -193,9 +195,6 @@ filterEvent<-cleanEvent %>%
 
 # Exploration -------------------------------------------------------------
 
-
-cleanCharging %>%
-  filter(programme == "MRC DTP") %>% view
 
 
 # Visuals ---------------------------------------------------------
@@ -382,6 +381,10 @@ filterCharging %>%
     x = "Academic Year"
   )
   
+
+cleanCharging %>% filter(programme == "SCM MPhil") %>%
+  group_by(ay) %>%
+  summarise(n())
 
 # Hours -------------------------------------------------------------------
 

@@ -1,0 +1,461 @@
+event_id,crsid,participant,attended
+20231010_MRC_IntroR,av630,Anna Vlachaki,TRUE
+20231010_MRC_IntroR,bjc71,Benjamin Chidiac,FALSE
+20231010_MRC_IntroR,brl34,Bethan Lloyd Owen,TRUE
+20231010_MRC_IntroR,ccbt2,Clotilde Tournerie,TRUE
+20231010_MRC_IntroR,cjh253,Cyril Haller,TRUE
+20231010_MRC_IntroR,elb92,Ella Bishop,TRUE
+20231010_MRC_IntroR,gew43,Grace West,TRUE
+20231010_MRC_IntroR,jmt97,Jasstine Mae Tabbada,TRUE
+20231010_MRC_IntroR,jjh92,Joseph Henderson,TRUE
+20231010_MRC_IntroR,kmk45,Karolina Kwiatkowska,TRUE
+20231010_MRC_IntroR,lw777,Lianne Wu,TRUE
+20231010_MRC_IntroR,nh608,Nick Hirschmüller,TRUE
+20231010_MRC_IntroR,nalh2,Nora Haanaes,TRUE
+20231010_MRC_IntroR,os443,Omar Shabana,TRUE
+20231010_MRC_IntroR,tmsv2,Teresa Von Linde,TRUE
+20231010_MRC_IntroR,ye234,Yasmine El Hajj,TRUE
+20231010_MRC_IntroR,yw691,Yunxiao Wang,TRUE
+20231024_MRC_CS,av630,Anna Vlachaki,TRUE
+20231024_MRC_CS,bjc71,Benjamin Chidiac,TRUE
+20231024_MRC_CS,brl34,Bethan Lloyd Owen,TRUE
+20231024_MRC_CS,ccbt2,Clotilde Tournerie,TRUE
+20231024_MRC_CS,cjh253,Cyril Haller,FALSE
+20231024_MRC_CS,elb92,Ella Bishop,TRUE
+20231024_MRC_CS,gew43,Grace West,TRUE
+20231024_MRC_CS,jmt97,Jasstine Mae Tabbada,TRUE
+20231024_MRC_CS,jjh92,Joseph Henderson,TRUE
+20231024_MRC_CS,kmk45,Karolina Kwiatkowska,TRUE
+20231024_MRC_CS,lw777,Lianne Wu,TRUE
+20231024_MRC_CS,nh608,Nick Hirschmüller,TRUE
+20231024_MRC_CS,nalh2,Nora Haanaes,TRUE
+20231024_MRC_CS,os443,Omar Shabana,TRUE
+20231024_MRC_CS,tmsv2,Teresa Von Linde,TRUE
+20231024_MRC_CS,ye234,Yasmine El Hajj,TRUE
+20231024_MRC_CS,yw691,Yunxiao Wang,TRUE
+20240112_MRCU_Dataviz,adymaa2,Abdulwahab Alshallal,TRUE
+20240112_MRCU_Dataviz,cy334,Chentianyi Yang,FALSE
+20240112_MRCU_Dataviz,gb718,Georgia Bozianu,FALSE
+20240112_MRCU_Dataviz,hrl34,Helen Little,TRUE
+20240112_MRCU_Dataviz,jaw209,James Woodward,FALSE
+20240112_MRCU_Dataviz,jyl51,Jia Yi Lee,TRUE
+20240112_MRCU_Dataviz,kt521,Kateryna Tyzhuk,TRUE
+20240112_MRCU_Dataviz,lrh40,Leah Hurst,FALSE
+20240112_MRCU_Dataviz,ech76,Libby Haynes,TRUE
+20240112_MRCU_Dataviz,lsc46,Louise Cooper,TRUE
+20240112_MRCU_Dataviz,lg702,Lukas Gunschera,FALSE
+20240112_MRCU_Dataviz,mmmc2,Marguerite Colin,FALSE
+20240112_MRCU_Dataviz,ns852,Nazmul Sarwar,TRUE
+20240112_MRCU_Dataviz,nk655,Nikita Kozhushko,FALSE
+20240112_MRCU_Dataviz,td502,T. Deng,FALSE
+20240112_MRCU_Dataviz,tc626,Thomas Chen,FALSE
+20240112_MRCU_Dataviz,vk334,Vitalina Kirgizova,FALSE
+20240116_MRC_AS,av630,Anna Vlachaki,TRUE
+20240116_MRC_AS,bjc71,Benjamin Chidiac,TRUE
+20240116_MRC_AS,brl34,Bethan Lloyd Owen,TRUE
+20240116_MRC_AS,ccbt2,Clotilde Tournerie,TRUE
+20240116_MRC_AS,cjh253,Cyril Haller,FALSE
+20240116_MRC_AS,elb92,Ella Bishop,TRUE
+20240116_MRC_AS,gew43,Grace West,TRUE
+20240116_MRC_AS,jmt97,Jasstine Mae Tabbada,FALSE
+20240116_MRC_AS,jjh92,Joseph Henderson,FALSE
+20240116_MRC_AS,kmk45,Karolina Kwiatkowska,FALSE
+20240116_MRC_AS,lw777,Lianne Wu,TRUE
+20240116_MRC_AS,nh608,Nick Hirschmüller,TRUE
+20240116_MRC_AS,nalh2,Nora Haanaes,TRUE
+20240116_MRC_AS,os443,Omar Shabana,TRUE
+20240116_MRC_AS,tmsv2,Teresa Von Linde,TRUE
+20240116_MRC_AS,ye234,Yasmine El Hajj,TRUE
+20240116_MRC_AS,yw691,Yunxiao Wang,TRUE
+202402020_MRC_RR,av630,Anna Vlachaki,FALSE
+202402020_MRC_RR,bjc71,Benjamin Chidiac,TRUE
+202402020_MRC_RR,brl34,Bethan Lloyd Owen,TRUE
+202402020_MRC_RR,ccbt2,Clotilde Tournerie,FALSE
+202402020_MRC_RR,cjh253,Cyril Haller,FALSE
+202402020_MRC_RR,elb92,Ella Bishop,FALSE
+202402020_MRC_RR,gew43,Grace West,TRUE
+202402020_MRC_RR,jmt97,Jasstine Mae Tabbada,FALSE
+202402020_MRC_RR,jjh92,Joseph Henderson,FALSE
+202402020_MRC_RR,kmk45,Karolina Kwiatkowska,FALSE
+202402020_MRC_RR,lw777,Lianne Wu,FALSE
+202402020_MRC_RR,nh608,Nick Hirschmüller,TRUE
+202402020_MRC_RR,nalh2,Nora Haanaes,TRUE
+202402020_MRC_RR,os443,Omar Shabana,TRUE
+202402020_MRC_RR,tmsv2,Teresa Von Linde,TRUE
+202402020_MRC_RR,ye234,Yasmine El Hajj,TRUE
+202402020_MRC_RR,yw691,Yunxiao Wang,TRUE
+20231206_PHARMA_CS,aa2459,Aida Ashrafzadeh,TRUE
+20231206_PHARMA_CS,ajt215,Alecia-Jane Twigger,TRUE
+20231206_PHARMA_CS,bgk23,Bryony Kennedy,TRUE
+20231206_PHARMA_CS,cmb248,Chloe Burgess,TRUE
+20231206_PHARMA_CS,en386,Emily Nassen,TRUE
+20231206_PHARMA_CS,eo363,Emily Overington,TRUE
+20231206_PHARMA_CS,kjw83,Katie Williams,TRUE
+20231206_PHARMA_CS,lg710,Laura Grundy,TRUE
+20231206_PHARMA_CS,klt55,Marco Tsang,TRUE
+20231206_PHARMA_CS,mr956,Marcos Rubio-Alarcon,FALSE
+20231206_PHARMA_CS,mz387,Maria Zacharopoulou,TRUE
+20231206_PHARMA_CS,mp2101,Marilia Pai,TRUE
+20231206_PHARMA_CS,ooo33,Ola Olayinka,TRUE
+20231206_PHARMA_CS,tw608,Tongyuan Wei,TRUE
+20231206_PHARMA_CS,yq276,Yawei Qi,TRUE
+20231206_PHARMA_CS,hyk27,Ying Kok,TRUE
+20231206_PHARMA_CS,yz876,Yu Zhu,TRUE
+20231206_PHARMA_CS,yc589,Yujia Cui,TRUE
+20231206_PHARMA_CS,cm970,Connor Macfarlane,TRUE
+20231009_Wellcome_IntroR,ag520,Alex Rowland,TRUE
+20231009_Wellcome_IntroR,#4891608,Aminder Singh,TRUE
+20231009_Wellcome_IntroR,aykn2,Anthony Ng,TRUE
+20231009_Wellcome_IntroR,dc625,Debbie Critoph,TRUE
+20231009_Wellcome_IntroR,#4891612,Georgee Jarman,TRUE
+20231009_Wellcome_IntroR,#4891613,Gina Sangha,TRUE
+20231009_Wellcome_IntroR,#4891627,James Ashcroft,TRUE
+20231009_Wellcome_IntroR,ks936,Katie Stephens,TRUE
+20231009_Wellcome_IntroR,#4891633,Rahul Chattopadhyay,TRUE
+20231009_Wellcome_IntroR,#4891634,Tabitha Wishlade,TRUE
+20231009_Wellcome_IntroR,cea41,Clare Leong,TRUE
+20231009_Wellcome_IntroR,#4891564,Jonathan Lee,TRUE
+20231009_Wellcome_IntroR,#4891568,Meha Patel,TRUE
+20231009_Wellcome_IntroR,sl908,Sam Lockhart,TRUE
+20231023_Wellcome_CSinR,ag520,Alex Rowland,TRUE
+20231023_Wellcome_CSinR,#4891608,Aminder Singh,TRUE
+20231023_Wellcome_CSinR,aykn2,Anthony Ng,TRUE
+20231023_Wellcome_CSinR,dc625,Debbie Critoph,TRUE
+20231023_Wellcome_CSinR,#4891612,Georgee Jarman,TRUE
+20231023_Wellcome_CSinR,#4891613,Gina Sangha,TRUE
+20231023_Wellcome_CSinR,#4891627,James Ashcroft,TRUE
+20231023_Wellcome_CSinR,ks936,Katie Stephens,TRUE
+20231023_Wellcome_CSinR,lr488,Louise Jordon,TRUE
+20231023_Wellcome_CSinR,#4891633,Rahul Chattopadhyay,TRUE
+20231023_Wellcome_CSinR,sl908,Sam Lockhart,TRUE
+20231023_Wellcome_CSinR,#4891634,Tabitha Wishlade,TRUE
+20231023_Wellcome_CSinR,cea41,Clare Leong,TRUE
+20231023_Wellcome_CSinR,#4891564,Jonathan Lee,TRUE
+20231023_Wellcome_CSinR,#4891568,Meha Patel,TRUE
+20231113_Wellcome_RRinR,#4891608,Aminder Singh,FALSE
+20231113_Wellcome_RRinR,#4891612,Georgee Jarman,TRUE
+20231113_Wellcome_RRinR,#4891613,Gina Sangha,TRUE
+20231113_Wellcome_RRinR,#4891627,James Ashcroft,FALSE
+20231113_Wellcome_RRinR,ks936,Katie Stephens,TRUE
+20231113_Wellcome_RRinR,#4891628,Katrina Andrews,FALSE
+20231113_Wellcome_RRinR,lr488,Louise Jordon,FALSE
+20231113_Wellcome_RRinR,#4891633,Rahul Chattopadhyay,TRUE
+20231113_Wellcome_RRinR,sl908,Sam Lockhart,FALSE
+20231113_Wellcome_RRinR,ss2861,Sarah Spencer,FALSE
+20231113_Wellcome_RRinR,#4891634,Tabitha Wishlade,FALSE
+20231113_Wellcome_RRinR,cea41,Clare Leong,TRUE
+20231113_Wellcome_RRinR,#4891564,Jonathan Lee,FALSE
+20231113_Wellcome_RRinR,#4891568,Meha Patel,TRUE
+20231012_SBS_MPhil_Intro,aa2159,Abel Henry Moseley Ashby,TRUE
+20231012_SBS_MPhil_Intro,abu21,Alexander Benjamin Upperton,TRUE
+20231012_SBS_MPhil_Intro,cfd33,Cicely Fern Day,TRUE
+20231012_SBS_MPhil_Intro,ead61,Edvishkha Ajernie Dias,TRUE
+20231012_SBS_MPhil_Intro,jc2450,Jiayu Chen,TRUE
+20231012_SBS_MPhil_Intro,mcj39,Madeleine Charlotte Jolliffe,TRUE
+20231012_SBS_MPhil_Intro,mm2789,Magdy Mekdad,TRUE
+20231012_SBS_MPhil_Intro,mlg55,Morgan Lilia Gridley,TRUE
+20231012_SBS_MPhil_Intro,rdk34,Roy David Kurtzbard,TRUE
+20231012_SBS_MPhil_Intro,xl591,Xiaofen Lin,TRUE
+20231012_SBS_MPhil_Intro,yl975,Yijian Luo,TRUE
+20231012_SBS_MPhil_Intro,zl566,Zhongyi Liang,TRUE
+20231012_SBS_MPhil_Intro,zw381,Zongtai Wu,TRUE
+20231012_SBS_MPhil_Intro,ah2121,Alessandra Anastasia Hitchborn,TRUE
+20231012_SBS_MPhil_Intro,ac2594,Ana Cañadas García,TRUE
+20231012_SBS_MPhil_Intro,ba454,Bimarzhan Assatova,TRUE
+20231012_SBS_MPhil_Intro,cl967,Changtai Li,TRUE
+20231012_SBS_MPhil_Intro,cyl71,Chen Yen Leow,TRUE
+20231012_SBS_MPhil_Intro,gkm24,Georgia Karen Miller,TRUE
+20231012_SBS_MPhil_Intro,hgb28,Hannah Grace Baker,TRUE
+20231012_SBS_MPhil_Intro,lc942,Licong Cai,TRUE
+20231012_SBS_MPhil_Intro,rx238,Runyu Xia,TRUE
+20231012_SBS_MPhil_Intro,tc671,Tingxuan Chen,TRUE
+20231012_SBS_MPhil_Intro,wm327,William Hunter Murphy,TRUE
+20231012_SBS_MPhil_Intro,wsvc2,Wing Sing Vincent Chua,TRUE
+20231012_SBS_MPhil_Intro,yw669,Yunyue Wang,TRUE
+20231012_SBS_MPhil_Intro,zilu2,Zara Iman Leila Uddin,TRUE
+20231012_SBS_MPhil_Intro,apb88,Andrew Paul Berley,TRUE
+20231012_SBS_MPhil_Intro,ads97,Angela Doom Sughnen,TRUE
+20231012_SBS_MPhil_Intro,bf363,Bright Fiakeye,TRUE
+20231012_SBS_MPhil_Intro,cdlw2,Carmen De Luis Watson,TRUE
+20231012_SBS_MPhil_Intro,chc77,Chi Him Cheng (Ed),TRUE
+20231012_SBS_MPhil_Intro,da581,Daiki Abe,TRUE
+20231012_SBS_MPhil_Intro,ic440,Isaac Coven,TRUE
+20231012_SBS_MPhil_Intro,ja809,Joy Adzovie,TRUE
+20231012_SBS_MPhil_Intro,jcm227,Judith Chiamaka Mbamalu,TRUE
+20231012_SBS_MPhil_Intro,lc963,Laura Cowan,TRUE
+20231012_SBS_MPhil_Intro,mp994,Matthew Jordi Perry,TRUE
+20231012_SBS_MPhil_Intro,rld57,Richard Ludo De Falbe,TRUE
+20231012_SBS_MPhil_Intro,sal95,Shakirudeen Abimbola Lawal,TRUE
+20231012_SBS_MPhil_Intro,slw97,Shun Ling Wong (Brigid),TRUE
+20231012_SBS_MPhil_Intro,tci23,Tochukwu Chisom Iguh,TRUE
+20231012_SBS_MPhil_Intro,aa2547,Aastha Agarwal,TRUE
+20231012_SBS_MPhil_Intro,ac2595,Amanda Wei Cee Chan,TRUE
+20231012_SBS_MPhil_Intro,ait38,Ava India True,TRUE
+20231012_SBS_MPhil_Intro,jcss3,Julius Christian Stan Schmiegelow,TRUE
+20231012_SBS_MPhil_Intro,kaw92,Karolina Agata Wasilewska,TRUE
+20231012_SBS_MPhil_Intro,mh2257,Maairah Haq,TRUE
+20231012_SBS_MPhil_Intro,neg29,Niamh Elizabeth Goldsmith,TRUE
+20231012_SBS_MPhil_Intro,sb2719,Sofia Beltrame,TRUE
+20231012_SBS_MPhil_Intro,zx308,Zhenjun Xu,TRUE
+20231012_SBS_MPhil_Intro,aa2486,Agne Augustinaite,TRUE
+20231012_SBS_MPhil_Intro,aw2000,Amelia Williams-Walker,TRUE
+20231012_SBS_MPhil_Intro,bz302,Bohan Zhang,TRUE
+20231012_SBS_MPhil_Intro,eak51,Emily Antrea Konstantinou,TRUE
+20231012_SBS_MPhil_Intro,ew636,Euan Docherty Webster,TRUE
+20231012_SBS_MPhil_Intro,lt506,Lauren Lydia Tout,TRUE
+20231012_SBS_MPhil_Intro,pzl21,Pengchi Zach Lu,TRUE
+20231012_SBS_MPhil_Intro,som24,Samuel Oliver Martyn-Smith,TRUE
+20231012_SBS_MPhil_Intro,ttee2,Trinity Tabitha Echo Eales,TRUE
+20231012_SBS_MPhil_Intro,yz905,Yuxuan Zhang,TRUE
+20231012_SBS_MPhil_Intro,zg311,Zhenyi Gu,TRUE
+20231012_SBS_MPhil_Intro,cc2196,Ceren Canse,TRUE
+20231012_SBS_MPhil_Intro,eea33,Emma Elizabeth Ahrens,TRUE
+20231012_SBS_MPhil_Intro,jb2490,Jemima Afi Bittor,TRUE
+20231012_SBS_MPhil_Intro,mjb330,Matilda Jane Beckett,TRUE
+20231012_SBS_MPhil_Intro,sl2172,Shuqi Li,TRUE
+20231102_SBS_MPhil_bulkRNA,aa2159,Abel Henry Moseley Ashby,TRUE
+20231102_SBS_MPhil_bulkRNA,ead61,Edvishkha Ajernie Dias,TRUE
+20231102_SBS_MPhil_bulkRNA,jc2450,Jiayu Chen,TRUE
+20231102_SBS_MPhil_bulkRNA,mcj39,Madeleine Charlotte Jolliffe,TRUE
+20231102_SBS_MPhil_bulkRNA,mm2789,Magdy Mekdad,TRUE
+20231102_SBS_MPhil_bulkRNA,rdk34,Roy David Kurtzbard,TRUE
+20231102_SBS_MPhil_bulkRNA,xl591,Xiaofen Lin,TRUE
+20231102_SBS_MPhil_bulkRNA,zl566,Zhongyi Liang,TRUE
+20231102_SBS_MPhil_bulkRNA,ac2594,Ana Cañadas García,TRUE
+20231102_SBS_MPhil_bulkRNA,ba454,Bimarzhan Assatova,TRUE
+20231102_SBS_MPhil_bulkRNA,cl967,Changtai Li,TRUE
+20231102_SBS_MPhil_bulkRNA,gkm24,Georgia Karen Miller,TRUE
+20231102_SBS_MPhil_bulkRNA,hgb28,Hannah Grace Baker,TRUE
+20231102_SBS_MPhil_bulkRNA,lc942,Licong Cai,TRUE
+20231102_SBS_MPhil_bulkRNA,rx238,Runyu Xia,FALSE
+20231102_SBS_MPhil_bulkRNA,aa2547,Aastha Agarwal,TRUE
+20231102_SBS_MPhil_bulkRNA,ac2595,Amanda Wei Cee Chan,TRUE
+20231102_SBS_MPhil_bulkRNA,ait38,Ava India True,TRUE
+20231102_SBS_MPhil_bulkRNA,jcss3,Julius Christian Stan Schmiegelow,TRUE
+20231102_SBS_MPhil_bulkRNA,kaw92,Karolina Agata Wasilewska,TRUE
+20231102_SBS_MPhil_bulkRNA,mh2257,Maairah Haq,TRUE
+20231102_SBS_MPhil_bulkRNA,neg29,Niamh Elizabeth Goldsmith,TRUE
+20231102_SBS_MPhil_bulkRNA,sb2719,Sofia Beltrame,TRUE
+20231102_SBS_MPhil_bulkRNA,zx308,Zhenjun Xu,TRUE
+20231102_SBS_MPhil_bulkRNA,cc2196,Ceren Canse,TRUE
+20231102_SBS_MPhil_bulkRNA,eea33,Emma Elizabeth Ahrens,TRUE
+20231102_SBS_MPhil_bulkRNA,jb2490,Jemima Afi Bittor,TRUE
+20231102_SBS_MPhil_bulkRNA,mjb330,Matilda Jane Beckett,TRUE
+20231102_SBS_MPhil_bulkRNA,sl2172,Shuqi Li,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,ah2121,Alessandra Anastasia Hitchborn,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,apb88,Andrew Paul Berley,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,ads97,Angela Doom Sughnen,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,bf363,Bright Fiakeye,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,cdlw2,Carmen De Luis Watson,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,chc77,Chi Him Cheng (Ed),TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,da581,Daiki Abe,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,ic440,Isaac Coven,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,ja809,Joy Adzovie,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,jcm227,Judith Chiamaka Mbamalu,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,lc963,Laura Cowan,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,mp994,Matthew Jordi Perry,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,rld57,Richard Ludo De Falbe,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,sal95,Shakirudeen Abimbola Lawal,TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,slw97,Shun Ling Wong (Brigid),TRUE
+20231102_SBS_MPhil_bulkRNA_asynch,tci23,Tochukwu Chisom Iguh,TRUE
+20231117_SBS_MPhil_CS,aa2159,Abel Henry Moseley Ashby,TRUE
+20231117_SBS_MPhil_CS,abu21,Alexander Benjamin Upperton,TRUE
+20231117_SBS_MPhil_CS,cfd33,Cicely Fern Day,TRUE
+20231117_SBS_MPhil_CS,ead61,Edvishkha Ajernie Dias,TRUE
+20231117_SBS_MPhil_CS,jc2450,Jiayu Chen,TRUE
+20231117_SBS_MPhil_CS,mcj39,Madeleine Charlotte Jolliffe,TRUE
+20231117_SBS_MPhil_CS,mm2789,Magdy Mekdad,TRUE
+20231117_SBS_MPhil_CS,mlg55,Morgan Lilia Gridley,TRUE
+20231117_SBS_MPhil_CS,rdk34,Roy David Kurtzbard,TRUE
+20231117_SBS_MPhil_CS,xl591,Xiaofen Lin,TRUE
+20231117_SBS_MPhil_CS,yl975,Yijian Luo,TRUE
+20231117_SBS_MPhil_CS,zl566,Zhongyi Liang,TRUE
+20231117_SBS_MPhil_CS,zw381,Zongtai Wu,TRUE
+20231117_SBS_MPhil_CS,ah2121,Alessandra Anastasia Hitchborn,TRUE
+20231117_SBS_MPhil_CS,ac2594,Ana Cañadas García,TRUE
+20231117_SBS_MPhil_CS,ba454,Bimarzhan Assatova,TRUE
+20231117_SBS_MPhil_CS,cl967,Changtai Li,TRUE
+20231117_SBS_MPhil_CS,cyl71,Chen Yen Leow,TRUE
+20231117_SBS_MPhil_CS,gkm24,Georgia Karen Miller,TRUE
+20231117_SBS_MPhil_CS,hgb28,Hannah Grace Baker,TRUE
+20231117_SBS_MPhil_CS,lc942,Licong Cai,TRUE
+20231117_SBS_MPhil_CS,rx238,Runyu Xia,TRUE
+20231117_SBS_MPhil_CS,tc671,Tingxuan Chen,TRUE
+20231117_SBS_MPhil_CS,wm327,William Hunter Murphy,TRUE
+20231117_SBS_MPhil_CS,wsvc2,Wing Sing Vincent Chua,TRUE
+20231117_SBS_MPhil_CS,yw669,Yunyue Wang,TRUE
+20231117_SBS_MPhil_CS,zilu2,Zara Iman Leila Uddin,TRUE
+20231117_SBS_MPhil_CS,apb88,Andrew Paul Berley,TRUE
+20231117_SBS_MPhil_CS,ads97,Angela Doom Sughnen,TRUE
+20231117_SBS_MPhil_CS,bf363,Bright Fiakeye,TRUE
+20231117_SBS_MPhil_CS,cdlw2,Carmen De Luis Watson,TRUE
+20231117_SBS_MPhil_CS,chc77,Chi Him Cheng (Ed),TRUE
+20231117_SBS_MPhil_CS,da581,Daiki Abe,TRUE
+20231117_SBS_MPhil_CS,ic440,Isaac Coven,TRUE
+20231117_SBS_MPhil_CS,ja809,Joy Adzovie,TRUE
+20231117_SBS_MPhil_CS,jcm227,Judith Chiamaka Mbamalu,TRUE
+20231117_SBS_MPhil_CS,lc963,Laura Cowan,TRUE
+20231117_SBS_MPhil_CS,mp994,Matthew Jordi Perry,FALSE
+20231117_SBS_MPhil_CS,rld57,Richard Ludo De Falbe,TRUE
+20231117_SBS_MPhil_CS,sal95,Shakirudeen Abimbola Lawal,TRUE
+20231117_SBS_MPhil_CS,slw97,Shun Ling Wong (Brigid),TRUE
+20231117_SBS_MPhil_CS,tci23,Tochukwu Chisom Iguh,TRUE
+20231117_SBS_MPhil_CS,aa2547,Aastha Agarwal,TRUE
+20231117_SBS_MPhil_CS,ac2595,Amanda Wei Cee Chan,TRUE
+20231117_SBS_MPhil_CS,ait38,Ava India True,TRUE
+20231117_SBS_MPhil_CS,jcss3,Julius Christian Stan Schmiegelow,TRUE
+20231117_SBS_MPhil_CS,kaw92,Karolina Agata Wasilewska,TRUE
+20231117_SBS_MPhil_CS,mh2257,Maairah Haq,TRUE
+20231117_SBS_MPhil_CS,neg29,Niamh Elizabeth Goldsmith,TRUE
+20231117_SBS_MPhil_CS,sb2719,Sofia Beltrame,TRUE
+20231117_SBS_MPhil_CS,zx308,Zhenjun Xu,TRUE
+20231117_SBS_MPhil_CS,aa2486,Agne Augustinaite,TRUE
+20231117_SBS_MPhil_CS,aw2000,Amelia Williams-Walker,TRUE
+20231117_SBS_MPhil_CS,bz302,Bohan Zhang,TRUE
+20231117_SBS_MPhil_CS,eak51,Emily Antrea Konstantinou,TRUE
+20231117_SBS_MPhil_CS,ew636,Euan Docherty Webster,TRUE
+20231117_SBS_MPhil_CS,lt506,Lauren Lydia Tout,TRUE
+20231117_SBS_MPhil_CS,pzl21,Pengchi Zach Lu,TRUE
+20231117_SBS_MPhil_CS,som24,Samuel Oliver Martyn-Smith,TRUE
+20231117_SBS_MPhil_CS,ttee2,Trinity Tabitha Echo Eales,TRUE
+20231117_SBS_MPhil_CS,yz905,Yuxuan Zhang,TRUE
+20231117_SBS_MPhil_CS,zg311,Zhenyi Gu,TRUE
+20231117_SBS_MPhil_CS,cc2196,Ceren Canse,TRUE
+20231117_SBS_MPhil_CS,eea33,Emma Elizabeth Ahrens,TRUE
+20231117_SBS_MPhil_CS,jb2490,Jemima Afi Bittor,TRUE
+20231117_SBS_MPhil_CS,mjb330,Matilda Jane Beckett,TRUE
+20231117_SBS_MPhil_CS,sl2172,Shuqi Li,TRUE
+20231212_SBSMPhil_exam,aa2159,Abel Henry Moseley Ashby,TRUE
+20231212_SBSMPhil_exam,abu21,Alexander Benjamin Upperton,TRUE
+20231212_SBSMPhil_exam,cfd33,Cicely Fern Day,TRUE
+20231212_SBSMPhil_exam,ead61,Edvishkha Ajernie Dias,TRUE
+20231212_SBSMPhil_exam,jc2450,Jiayu Chen,TRUE
+20231212_SBSMPhil_exam,mm2789,Magdy Mekdad,TRUE
+20231212_SBSMPhil_exam,mlg55,Morgan Lilia Gridley,TRUE
+20231212_SBSMPhil_exam,rdk34,Roy David Kurtzbard,TRUE
+20231212_SBSMPhil_exam,xl591,Xiaofen Lin,TRUE
+20231212_SBSMPhil_exam,yl975,Yijian Luo,TRUE
+20231212_SBSMPhil_exam,zl566,Zhongyi Liang,TRUE
+20231212_SBSMPhil_exam,zw381,Zongtai Wu,TRUE
+20231212_SBSMPhil_exam,ac2594,Ana Cañadas García,TRUE
+20231212_SBSMPhil_exam,ba454,Bimarzhan Assatova,TRUE
+20231212_SBSMPhil_exam,cl967,Changtai Li,TRUE
+20231212_SBSMPhil_exam,cyl71,Chen Yen Leow,TRUE
+20231212_SBSMPhil_exam,gkm24,Georgia Karen Miller,TRUE
+20231212_SBSMPhil_exam,lc942,Licong Cai,TRUE
+20231212_SBSMPhil_exam,rx238,Runyu Xia,TRUE
+20231212_SBSMPhil_exam,tc671,Tingxuan Chen,TRUE
+20231212_SBSMPhil_exam,wsvc2,Wing Sing Vincent Chua,TRUE
+20231212_SBSMPhil_exam,yw669,Yunyue Wang,TRUE
+20231212_SBSMPhil_exam,apb88,Andrew Paul Berley,TRUE
+20231212_SBSMPhil_exam,ads97,Angela Doom Sughnen,TRUE
+20231212_SBSMPhil_exam,bf363,Bright Fiakeye,TRUE
+20231212_SBSMPhil_exam,cdlw2,Carmen De Luis Watson,TRUE
+20231212_SBSMPhil_exam,chc77,Chi Him Cheng (Ed),TRUE
+20231212_SBSMPhil_exam,da581,Daiki Abe,TRUE
+20231212_SBSMPhil_exam,ic440,Isaac Coven,TRUE
+20231212_SBSMPhil_exam,ja809,Joy Adzovie,TRUE
+20231212_SBSMPhil_exam,jcm227,Judith Chiamaka Mbamalu,TRUE
+20231212_SBSMPhil_exam,mp994,Matthew Jordi Perry,TRUE
+20231212_SBSMPhil_exam,rld57,Richard Ludo De Falbe,TRUE
+20231212_SBSMPhil_exam,sal95,Shakirudeen Abimbola Lawal,TRUE
+20231212_SBSMPhil_exam,slw97,Shun Ling Wong (Brigid),TRUE
+20231212_SBSMPhil_exam,tci23,Tochukwu Chisom Iguh,TRUE
+20231212_SBSMPhil_exam,aa2547,Aastha Agarwal,TRUE
+20231212_SBSMPhil_exam,ac2595,Amanda Wei Cee Chan,TRUE
+20231212_SBSMPhil_exam,ait38,Ava India True,TRUE
+20231212_SBSMPhil_exam,jcss3,Julius Christian Stan Schmiegelow,TRUE
+20231212_SBSMPhil_exam,kaw92,Karolina Agata Wasilewska,TRUE
+20231212_SBSMPhil_exam,neg29,Niamh Elizabeth Goldsmith,TRUE
+20231212_SBSMPhil_exam,sb2719,Sofia Beltrame,TRUE
+20231212_SBSMPhil_exam,zx308,Zhenjun Xu,TRUE
+20231212_SBSMPhil_exam,cc2196,Ceren Canse,TRUE
+20231212_SBSMPhil_exam,eea33,Emma Elizabeth Ahrens,TRUE
+20231212_SBSMPhil_exam,jb2490,Jemima Afi Bittor,TRUE
+20231212_SBSMPhil_exam,mjb330,Matilda Jane Beckett,TRUE
+20231212_SBSMPhil_exam,sl2172,Shuqi Li,TRUE
+20231212_SBSMPhil_exam_IBaMI,aa2486,Agne Augustinaite,TRUE
+20231212_SBSMPhil_exam_IBaMI,aw2000,Amelia Williams-Walker,TRUE
+20231212_SBSMPhil_exam_IBaMI,bz302,Bohan Zhang,TRUE
+20231212_SBSMPhil_exam_IBaMI,eak51,Emily Antrea Konstantinou,TRUE
+20231212_SBSMPhil_exam_IBaMI,ew636,Euan Docherty Webster,TRUE
+20231212_SBSMPhil_exam_IBaMI,lt506,Lauren Lydia Tout,TRUE
+20231212_SBSMPhil_exam_IBaMI,pzl21,Pengchi Zach Lu,TRUE
+20231212_SBSMPhil_exam_IBaMI,som24,Samuel Oliver Martyn-Smith,TRUE
+20231212_SBSMPhil_exam_IBaMI,yz905,Yuxuan Zhang,TRUE
+20231212_SBSMPhil_exam_IBaMI,zg311,Zhenyi Gu,TRUE
+20231212_SBSMPhil_exam_SSD,mcj39,Madeleine Charlotte Jolliffe,TRUE
+20231212_SBSMPhil_exam_SSD,ah2121,Alessandra Anastasia Hitchborn,TRUE
+20231212_SBSMPhil_exam_SSD,hgb28,Hannah Grace Baker,TRUE
+20231212_SBSMPhil_exam_SSD,wm327,William Hunter Murphy,TRUE
+20231212_SBSMPhil_exam_SSD,zilu2,Zara Iman Leila Uddin,TRUE
+20231212_SBSMPhil_exam_SSD,lc963,Laura Cowan,TRUE
+20231212_SBSMPhil_exam_SSD,mh2257,Maairah Haq,TRUE
+20231212_SBSMPhil_exam_SSD_IBaMI,ttee2,Trinity Tabitha Echo Eales,TRUE
+20240313_SBS_MPhil_DV,aa2159,Abel Henry Moseley Ashby,FALSE
+20240313_SBS_MPhil_DV,abu21,Alexander Benjamin Upperton,TRUE
+20240313_SBS_MPhil_DV,cfd33,Cicely Fern Day,FALSE
+20240313_SBS_MPhil_DV,ead61,Edvishkha Ajernie Dias,FALSE
+20240313_SBS_MPhil_DV,jc2450,Jiayu Chen,TRUE
+20240313_SBS_MPhil_DV,mcj39,Madeleine Charlotte Jolliffe,TRUE
+20240313_SBS_MPhil_DV,mm2789,Magdy Mekdad,TRUE
+20240313_SBS_MPhil_DV,mlg55,Morgan Lilia Gridley,TRUE
+20240313_SBS_MPhil_DV,rdk34,Roy David Kurtzbard,FALSE
+20240313_SBS_MPhil_DV,xl591,Xiaofen Lin,TRUE
+20240313_SBS_MPhil_DV,yl975,Yijian Luo,FALSE
+20240313_SBS_MPhil_DV,zl566,Zhongyi Liang,FALSE
+20240313_SBS_MPhil_DV,zw381,Zongtai Wu,FALSE
+20240313_SBS_MPhil_DV,ah2121,Alessandra Anastasia Hitchborn,FALSE
+20240313_SBS_MPhil_DV,ac2594,Ana Cañadas García,FALSE
+20240313_SBS_MPhil_DV,ba454,Bimarzhan Assatova,TRUE
+20240313_SBS_MPhil_DV,cl967,Changtai Li,TRUE
+20240313_SBS_MPhil_DV,cyl71,Chen Yen Leow,TRUE
+20240313_SBS_MPhil_DV,gkm24,Georgia Karen Miller,TRUE
+20240313_SBS_MPhil_DV,hgb28,Hannah Grace Baker,TRUE
+20240313_SBS_MPhil_DV,lc942,Licong Cai,TRUE
+20240313_SBS_MPhil_DV,rx238,Runyu Xia,FALSE
+20240313_SBS_MPhil_DV,tc671,Tingxuan Chen,TRUE
+20240313_SBS_MPhil_DV,wm327,William Hunter Murphy,TRUE
+20240313_SBS_MPhil_DV,wsvc2,Wing Sing Vincent Chua,FALSE
+20240313_SBS_MPhil_DV,yw669,Yunyue Wang,FALSE
+20240313_SBS_MPhil_DV,zilu2,Zara Iman Leila Uddin,TRUE
+20240313_SBS_MPhil_DV,apb88,Andrew Paul Berley,TRUE
+20240313_SBS_MPhil_DV,ads97,Angela Doom Sughnen,TRUE
+20240313_SBS_MPhil_DV,bf363,Bright Fiakeye,TRUE
+20240313_SBS_MPhil_DV,cdlw2,Carmen De Luis Watson,TRUE
+20240313_SBS_MPhil_DV,chc77,Chi Him Cheng (Ed),TRUE
+20240313_SBS_MPhil_DV,da581,Daiki Abe,TRUE
+20240313_SBS_MPhil_DV,ic440,Isaac Coven,TRUE
+20240313_SBS_MPhil_DV,ja809,Joy Adzovie,TRUE
+20240313_SBS_MPhil_DV,jcm227,Judith Chiamaka Mbamalu,TRUE
+20240313_SBS_MPhil_DV,lc963,Laura Cowan,TRUE
+20240313_SBS_MPhil_DV,mp994,Matthew Jordi Perry,FALSE
+20240313_SBS_MPhil_DV,rld57,Richard Ludo De Falbe,TRUE
+20240313_SBS_MPhil_DV,sal95,Shakirudeen Abimbola Lawal,TRUE
+20240313_SBS_MPhil_DV,slw97,Shun Ling Wong (Brigid),TRUE
+20240313_SBS_MPhil_DV,tci23,Tochukwu Chisom Iguh,TRUE
+20240313_SBS_MPhil_DV,aa2547,Aastha Agarwal,TRUE
+20240313_SBS_MPhil_DV,ac2595,Amanda Wei Cee Chan,TRUE
+20240313_SBS_MPhil_DV,ait38,Ava India True,FALSE
+20240313_SBS_MPhil_DV,jcss3,Julius Christian Stan Schmiegelow,TRUE
+20240313_SBS_MPhil_DV,kaw92,Karolina Agata Wasilewska,FALSE
+20240313_SBS_MPhil_DV,mh2257,Maairah Haq,TRUE
+20240313_SBS_MPhil_DV,neg29,Niamh Elizabeth Goldsmith,TRUE
+20240313_SBS_MPhil_DV,sb2719,Sofia Beltrame,FALSE
+20240313_SBS_MPhil_DV,zx308,Zhenjun Xu,FALSE
+20240313_SBS_MPhil_DV,aa2486,Agne Augustinaite,TRUE
+20240313_SBS_MPhil_DV,aw2000,Amelia Williams-Walker,TRUE
+20240313_SBS_MPhil_DV,bz302,Bohan Zhang,TRUE
+20240313_SBS_MPhil_DV,eak51,Emily Antrea Konstantinou,TRUE
+20240313_SBS_MPhil_DV,ew636,Euan Docherty Webster,TRUE
+20240313_SBS_MPhil_DV,lt506,Lauren Lydia Tout,TRUE
+20240313_SBS_MPhil_DV,pzl21,Pengchi Zach Lu,TRUE
+20240313_SBS_MPhil_DV,som24,Samuel Oliver Martyn-Smith,TRUE
+20240313_SBS_MPhil_DV,ttee2,Trinity Tabitha Echo Eales,TRUE
+20240313_SBS_MPhil_DV,yz905,Yuxuan Zhang,FALSE
+20240313_SBS_MPhil_DV,zg311,Zhenyi Gu,TRUE
+20240313_SBS_MPhil_DV,cc2196,Ceren Canse,TRUE
+20240313_SBS_MPhil_DV,eea33,Emma Elizabeth Ahrens,TRUE
+20240313_SBS_MPhil_DV,jb2490,Jemima Afi Bittor,TRUE
+20240313_SBS_MPhil_DV,mjb330,Matilda Jane Beckett,TRUE
+20240313_SBS_MPhil_DV,sl2172,Shuqi Li,TRUE
