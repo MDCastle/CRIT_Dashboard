@@ -1,0 +1,77 @@
+event_title,new_event_title,
+Advanced statistics in Python,Advanced statistics,1
+Advanced statistics in R,Advanced statistics,1
+An Introduction to Machine Learning,Introduction to Machine Learning,1
+Analysing your own data: a workshop on statistics and experimental design,Analysing your own data: a workshop on statistics and experimental design,0
+Analysis of ChIP-seq Data with SeqMonk,Analysis of ChIP-seq Data with SeqMonk,0
+Analysis of DNA Methylation using Sequencing,Analysis of DNA Methylation using Sequencing,0
+Analysis of expression proteomics data in R,Expression proteomics analysis in R,1
+BTN MPhil Core Assessment Exam,Core Statistics Exam,1
+Building Computational Pipelines with Snakemake,Building Computational Pipelines with Snakemake,0
+Bulk RNA-seq analysis,Bulk RNA-seq analysis,0
+Core statistics in Python,Core Statistics,1
+Core statistics in R,Core Statistics,1
+Core statistics in R or Python,Core Statistics,1
+Critical Analysis of Papers,Critical Analysis of Papers,0
+Dev Biol stats exam,Core Statistics Exam,1
+EMBL-EBI: Network Analysis with Cytoscape,EMBL-EBI: Network Analysis with Cytoscape,0
+Ensembl REST API workshop,Ensembl REST API workshop,0
+Experience Postgraduate Life Sciences,Using R and effectively communicating data,1
+Experimental Design (CRUK),Experimental Design (CRUK),0
+Experimental design for statistical analysis,Experimental design for statistical analysis,0
+Expression proteomics analysis in R,Expression proteomics analysis in R,0
+Extracting biological information from gene lists,Extracting biological information from gene lists,0
+Foundations of phylogenetic inference,Foundations of phylogenetic inference,0
+Fundamentals of Programming in R,Fundamentals of Programming in R,0
+Fundamentals of stats/AI link,Fundamentals of Statistics,1
+Generalised linear models,Generalised linear models,0
+Intermediate Supervised Machine Learning,Intermediate Supervised Machine Learning,0
+Intro to R drop-in,Data Analysis in R clinic,1
+Introducing experimental design,Experimental design for statistical analysis,1
+Introducing generalised linear models,Generalised linear models,1
+Introducing linear mixed effect models,Linear mixed effects models,1
+Introducing visual data communication,Visual data communication,1
+Introduction to Bayesian Inference,Introduction to Bayesian Inference,0
+Introduction to Galaxy for Next Generation Sequencing Analysis,Introduction to Galaxy for Next Generation Sequencing Analysis,0
+Introduction to Linear Modelling with R,Introduction to Linear Modelling with R,0
+Introduction to mass spectrometry: theory and applications,Introduction to mass spectrometry: theory and applications,0
+Introduction to Metabolomics,Metabolomics data analysis,1
+Introduction to Metagenomics,Metagenomics data analysis,1
+Introduction to Python,Data Analysis in Python,1
+Introduction to Python drop-in session,Data Analysis in Python clinic,1
+Introduction to R,Data Analysis in R,1
+Introduction to R drop-in session,Data Analysis in R clinic,1
+Introduction to Statistical Analysis,Fundamentals of Statistics,1
+Introduction to the Unix command line,Introduction to the Unix command line,0
+Linear mixed effects models,Linear mixed effects models,0
+Managing bioinformatics software and pipelines,Managing bioinformatics software and pipelines,0
+Managing your Research Data,Managing your Research Data,0
+Metabolomics data analysis,Metabolomics data analysis,0
+Metagenomics data analysis,Metagenomics data analysis,0
+Microbiotica Statistical Literacy,Microbiotica Statistical Literacy,0
+Principles of Machine Learning,Principles of Machine Learning,0
+Programming for Machine Learning,Programming for Machine Learning,0
+Prompting for biologists: using AI chatbots for effective data analysis,Prompting for biologists: using AI chatbots for effective data analysis,0
+Protein structure modelling,Protein structure modelling,0
+Quality Control in Sequencing Experiments,Quality Control in Sequencing Experiments,0
+Reproducible Research and Experimental Design,Reproducible Research in R,1
+Reproducible Research in Python,Reproducible Research in Python,0
+Reproducible Research in R,Reproducible Research in R,0
+Reproducible research in R,Reproducible Research in R,0
+SBS MPhil post-exam Q&A,Core Statistics Exam clinic,1
+SBS MPhil stats exam (5 x pathways),Core Statistics Exam,1
+SBS MPhil stats exam (IBaMI),Core Statistics Exam,1
+SBS MPhil stats exam (SSD IBaMI),Core Statistics Exam,1
+SBS MPhil stats exam (SSD),Core Statistics Exam,1
+SCM MPhil stats exam (main),Core Statistics Exam,1
+SCM MPhil stats exam (SSD),Core Statistics Exam,1
+Single-cell RNA-seq analysis,Single-cell RNA-seq analysis,0
+Software Reproducibility using Containers,Software Reproducibility using Containers,0
+Statistical Literacy,Statistical Literacy,0
+Using R and effectively communicating data,Using R and effectively communicating data,0
+Using the Ensembl Genome Browser,Using the Ensembl Genome Browser,0
+Variant Discovery with GATK4,Variant Discovery with GATK4,0
+Visual data communication,Visual data communication,0
+Working on HPC clusters,Working on HPC clusters,0
+Working with Bacterial Genomes,Working with Bacterial Genomes,0
+Working with bacterial genomes,Working with Bacterial Genomes,0
