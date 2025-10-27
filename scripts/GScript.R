@@ -2,7 +2,7 @@ library(googlesheets4)
 library(tidyverse)
 library(magrittr)
 library(lubridate)
-
+library(httpuv)
 
 #update to charging
 
@@ -29,35 +29,10 @@ cleanSession<-sessionDat
 
 # cleanAttendance ---------------------------------------------------------
 
-#make Course_type Column
-#default values are open, cohort or special event
-cleanAttendance %<>%
-  mutate(course_type = case_when(
-    programme == "Open" ~ "open",
-    programme == "Special event" ~ "special event",
-    .default = "cohort"))
 
-#make Session_type Column
-#default values are teaching, exam or clinic
-cleanAttendance %<>%
-  mutate(session_type = case_when(
-    event_title == "Dev Biol stats exam" ~ "exam",
-    event_title == "SBS MPhil stats exam (IBaMI)" ~ "exam",
-    event_title == "SBS MPhil stats exam (SSD IBaMI)" ~ "exam",
-    event_title == "SCM MPhil stats exam (SSD)" ~ "exam",
-    event_title == "BTN MPhil Core Assessment Exam" ~ "exam",
-    event_title == "SBS MPhil stats exam (5 x pathways)" ~ "exam",
-    event_title == "SBS MPhil stats exam (SSD)" ~ "exam",
-    event_title == "SCM MPhil stats exam (main)" ~ "exam",
-    event_title == "Intro to R drop-in" ~ "clinic",
-    event_title == "Introduction to R drop-in session" ~ "clinic",
-    event_title == "Introduction to Python drop-in session" ~ "clinic",
-    event_title == "SBS MPhil post-exam Q&A" ~ "clinic",
-    .default = "teaching"
-  ))
+#Clean Variables
 
-
-#Clean Naming for programme
+#programme
 cleanAttendance %<>%
   mutate(programme = case_when(
     programme == "BBSRC" ~ "BBSRC DTP",
@@ -71,10 +46,16 @@ cleanAttendance %<>%
     programme == "Dev Biol" ~ "Dev Biol MPhil",
     programme == "Pharmacology PG" ~ "Pharm PG",
     programme == "Pharmacology UG" ~ "Pharm UG",
+    event_id == "20230417_GATK" ~ "Open",
+    event_id == "20230918_StatsSchool" ~ "Open",
+    event_id == "20240415_Analysing_own_data_main" ~ "Open",
+    event_id == "20240425_Analysing_own_data_extra" ~ "Open",
     .default = programme
   ))
 
-#Clean Naming for charge_status
+
+
+#charge_status
 cleanAttendance %<>%
   mutate(charge_status = case_when(
     charge_status == "internal" ~ "academic - Cambridge",
@@ -122,19 +103,64 @@ cleanAttendance %<>%
     .default = event_title
   ))
     
-    
 
-#Individual records
+
+#Make New Variables
+
+#make Course_type Column
+#default values are open, cohort or special event
+cleanAttendance %<>%
+  mutate(course_type = case_when(
+    programme == "Open" ~ "open",
+    programme == "Special event" ~ "special event",
+    .default = "cohort"))
+
+#make Session_type Column
+#default values are teaching, exam or clinic
+cleanAttendance %<>%
+  mutate(session_type = case_when(
+    event_title == "Core Statistics exam" ~ "exam",
+    event_title == "Data Analysis in R clinic" ~ "clinic",
+    event_title == "Data Analysis in Python clinic" ~ "clinic",
+    event_title == "Core Statistics Exam clinic" ~ "clinic",
+    .default = "teaching"
+  ))
+
+
+
+#Fix Individual records
+
+
 #Remove Jonathan Aaron (no other information apart from name)
 cleanAttendance %<>% filter(participant != "Jonathan Aaron" | event_id != "20221014_IntroR")
 
-# set charge status for Lauras
+#Remove S. Camara (on waiting list but absent so sholdn't be on here at all)
+cleanAttendance %<>% filter (booking_status != "waiting" | attn_status != "absent")
+
+#fix booking status for Saur Hajiev, E.C. Harding
+cleanAttendance %<>% 
+  mutate(booking_status = case_when(
+    participant == "Saur Hajiev" & event_id== "20240617_bioinfo-unix2" ~ "booked",
+    participant == "Dr E.C. Harding" & event_id== "20220912_IntroPython" ~ "booked",
+    participant == "Aisha Al Amri" & event_id== "20230112_UNIX" ~ "not booked",
+    booking_status == "offered" ~ "booked",
+    booking_status == "provisional" ~ "booked",
+    .default = booking_status
+  ))
+
+#fix charge_status
 cleanAttendance %<>%
   mutate(charge_status = case_when(
+    event_id == "20230918_StatsSchool" & participant == "Elisabeth Murphy" ~ "academic - External",
+    event_id == "20230918_StatsSchool" & participant == "Katherine Symons" ~ "academic - Cambridge",
+    event_id == "20230918_StatsSchool" & participant == "Max Koko" ~ "student",
+    event_id == "20230918_StatsSchool" & participant == "Muruj Ishaq Tukruni" ~ "academic - External",
     charge_status == "no_charge" & participant == "Laura Millett" ~ "academic - External",
     charge_status == "no_charge" & participant == "Laura Mincarelli" ~ "academic - External",
     .default = charge_status
   ))
+
+
 
 
 
@@ -202,37 +228,19 @@ filterEvent<-cleanEvent %>%
 
 # Exploration -------------------------------------------------------------
 
-temp<-cleanEvent %>%
-  filter(programme=="Open") %>%
-  #distinct(event_title , .keep_all = TRUE) %>%
-  select(event_title , ay)
-
-temp$event_title<-gsub("\\(Open\\) ","",temp$event_title)
-
-table(temp)
-
-sessionDat %>%
-  distinct(event_title , .keep_all = TRUE) %>%
-  select(event_title , category) %>%
-  filter(category != "undergraduate" & category != "hosting" & category != "special event") %>%
-  view()
-
-
-cleanSession %>%
-  filter(category == "hosting") %>% view()
 
 cleanAttendance %>%
-  filter(primary_inst_school == "School of Clinical Medicine") %>%
-  filter(programme == "Sanger") %>% view()
+  group_by(course_type) %>%
+  summarise(n())
 
+
+cleanAttendance %>% filter(is.na(charge_status)) %>% view()
 # Visuals ---------------------------------------------------------
 
 
 # Bookings ----------------------------------------------------------
 ## Total
 filterAttendance %>%
-  filter(booking_status == "booked" | booking_status == "booked late" | booking_status == "joined" | attn_status == "attended" | attn_status == "async") %>%
-  filter(course_type != "Special event") %>%
   filter(session_type == "teaching") %>%
   group_by(ay) %>%
   summarise(Bookings=n()) %>%
@@ -249,8 +257,6 @@ filterAttendance %>%
 
 ## Cohort vs Open
 filterAttendance %>%
-  filter(booking_status == "booked" | booking_status == "booked late" | booking_status == "joined" | attn_status == "attended" | attn_status == "async") %>%
-  filter(course_type != "Special event") %>%
   filter(session_type == "teaching") %>%
   group_by(ay , course_type) %>%
   summarise(Bookings=n()) %>%
@@ -271,8 +277,6 @@ filterAttendance %>%
 
 ## Participant Type
 filterAttendance %>%
-  filter(booking_status == "booked" | booking_status == "booked late" | booking_status == "joined" | attn_status == "attended" | attn_status == "async") %>%
-  filter(course_type != "Special event") %>%
   filter(session_type == "teaching") %>%
   group_by(ay , charge_status) %>%
   summarise(Bookings=n()) %>%
