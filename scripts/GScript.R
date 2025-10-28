@@ -317,7 +317,7 @@ filterCharging %>%
 ## Participant Type
 filterCharging %>%
   group_by(ay) %>%
-  distinct(participant , .keep_all = TRUE)
+  distinct(participant , .keep_all = TRUE) %>%
   filter(session_type == "teaching") %>%
   group_by(ay , charge_status) %>%
   summarise(Bookings=n()) %>%
@@ -341,7 +341,7 @@ filterCharging %>%
 # Bookings per participant ------------------------------------------------
 
 
-  
+#Aggregate  
 filterCharging %>%
   group_by(participant ,  .drop = FALSE) %>%
   summarise(Bookings = n()) %>%
@@ -358,29 +358,81 @@ filterCharging %>%
   )
 
 
+#Grouped
 filterCharging %>%
   group_by(participant ,  .drop = FALSE) %>%
-  summarise(Bookings = n()) %>%
-  ungroup() %>%
+  summarise(Bookings = n()) %>% 
+  ungroup() %>% 
   mutate(Cat = case_when(
     Bookings == 1 ~ "1",
-    Bookings == 2 ~ "2",
-    Bookings >=3 & Bookings <=5 ~ "3-5",
-    Bookings >=6 & Bookings <=10 ~ "6-10",
-    .default = "10+"
+    Bookings >=2 & Bookings <=5 ~ "2-5",
+    .default = "6+"
   )) %>%
-  mutate(Cat = factor(Cat , c("1" , "2" , "3-5" , "6-10" , "10+"))) %>%
-  group_by(Cat) %>%
+  mutate(Cat = factor(Cat , c("1" , "2-5" , "6+"))) %>% 
+  group_by(Cat) %>% 
   summarise(Count = n()) %>% 
-  mutate(Prop = Count / sum(Count) ) %>%
-  ggplot(aes(x=Cat , y=Prop , fill = Prop)) +
+  mutate(Prop = Count / sum(Count) *100) %>% 
+  ggplot(aes(x=Cat , y=Prop , fill = Cat)) +
   geom_bar(stat = "identity" , position = "dodge") +
+  geom_text(aes(x=Cat , y=Prop , label = paste0(round(Prop,0) , "%")) , position = position_dodge(width=0.9) , vjust =-0.5) +
   labs(
     title = "Bookings per participant: 22-25",
-    y = "Proportion",
+    y = "Proportion (%)",
     x = "No. of Bookings"
   )
   
+
+#cohort vs open
+filterCharging %>%
+  filter(course_type != "special event") %>%
+  group_by(participant , course_type ,  .drop = FALSE) %>%
+  summarise(Bookings = n()) %>% 
+  ungroup() %>% 
+  mutate(Cat = case_when(
+    Bookings == 1 ~ "1",
+    Bookings >=2 & Bookings <=5 ~ "2-5",
+    .default = "6+"
+  )) %>%
+  mutate(Cat = factor(Cat , c("1" , "2-5" , "6+"))) %>%
+  group_by(Cat , course_type) %>% 
+  summarise(Count = n()) %>%
+  ungroup() %>%
+  group_by(course_type) %>%
+  mutate(Prop = Count / sum(Count) *100) %>%
+  ggplot(aes(x=course_type , y=Prop , fill = Cat)) +
+  geom_bar(stat = "identity" , position = "dodge") +
+  geom_text(aes(x=course_type , y=Prop , label = paste0(round(Prop,0) , "%")) , position = position_dodge(width=0.9) , vjust =-0.5) +
+  labs(
+    title = "Bookings per participant: 22-25",
+    y = "Proportion (%)",
+    x = "Course Type"
+  )
+
+
+#Participant Type
+filterCharging %>%
+  group_by(participant , charge_status ,  .drop = FALSE) %>%
+  summarise(Bookings = n()) %>% 
+  ungroup() %>% 
+  mutate(Cat = case_when(
+    Bookings == 1 ~ "1",
+    Bookings >=2 & Bookings <=5 ~ "2-5",
+    .default = "6+"
+  )) %>%
+  mutate(Cat = factor(Cat , c("1" , "2-5" , "6+"))) %>%
+  group_by(Cat , charge_status) %>% 
+  summarise(Count = n()) %>%
+  ungroup() %>%
+  group_by(charge_status) %>%
+  mutate(Prop = Count / sum(Count) *100) %>%
+  ggplot(aes(x=charge_status , y=Prop , fill = Cat)) +
+  geom_bar(stat = "identity" , position = "dodge") +
+  geom_text(aes(x=charge_status , y=Prop , label = paste0(round(Prop,0) , "%")) , position = position_dodge(width=0.9) , vjust =-0.5) +
+  labs(
+    title = "Bookings per participant: 22-25",
+    y = "Proportion (%)",
+    x = "Participant Type"
+  )
 
 
 # Attendees ---------------------------------------------------------------
