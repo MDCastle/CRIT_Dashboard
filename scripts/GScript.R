@@ -9,10 +9,10 @@ library(httpuv)
 #attendance_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=31993042#gid=31993042"
 
 charging_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=843633111#gid=843633111"
-
 session_url<-"https://docs.google.com/spreadsheets/d/12PsCDKaGrkmgbdbzN0iFtNPCDD0-frYBvi4i-5Ez_5Y/edit?gid=1558804232#gid=1558804232"
 
-#gs4_auth()
+#automatic authentication for Googlesheets access
+gs4_auth(email = "mdc31@cam.ac.uk")
 
 #attendanceDat<-read_sheet(attendance_url, sheet="attendance")
 chargingDat<-read_sheet(charging_url , sheet = "charging" , col_types = "cTcccccclcccccccccnnnnnnnnnnTccc")
@@ -207,8 +207,8 @@ filterCharging %>%
   group_by(ay) %>%
   summarise(Bookings=n()) %>%
   mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
-  ggplot(aes(x=ay , y=Bookings , label=paste("atop(" , Bookings , "," , "paste(",Change,",'%')" , ")"))) + 
-  geom_bar(stat="identity" , fill="seagreen") +
+  ggplot(aes(x=ay , y=Bookings , fill = ay ,label=paste("atop(" , Bookings , "," , "paste(",Change,",'%')" , ")"))) + 
+  geom_bar(stat="identity")+ #"seagreen") +
   geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
   labs(
     title = paste0("Total Bookings: ",myperiod),
@@ -270,8 +270,8 @@ filterCharging %>%
   group_by(ay) %>%
   summarise(Attendees=sum(attended == TRUE)) %>%
   mutate(Change = floor((Attendees/first(Attendees) - 1 )*100)) %>%
-  ggplot(aes(x=ay , y=Attendees , label=paste("atop(" , Attendees , "," , "paste(",Change,",'%')" , ")"))) + 
-  geom_bar(stat="identity" , fill="skyblue3") + 
+  ggplot(aes(x=ay , y=Attendees , fill = ay , label=paste("atop(" , Attendees , "," , "paste(",Change,",'%')" , ")"))) + 
+  geom_bar(stat="identity")+ # , fill="skyblue3") + 
   geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
   labs(
     title = paste0("Total Attendees: ",myperiod),
@@ -332,9 +332,9 @@ filterCharging %>%
   filter(session_type == "teaching") %>%
   group_by(ay) %>%
   summarise(Bookings=n() , Attendees=sum(attended == TRUE) , Attendance = Attendees/Bookings) %>%
-  ggplot(aes(x=ay , y=Attendance , label=paste( "paste(" , round(Attendance*100,0) , ",'%')"))) + 
-  geom_bar(stat="identity" , fill="wheat") + 
-  geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
+  ggplot(aes(x=ay , y=Attendance ,fill = ay , label=paste( "paste(" , round(Attendance*100,0) , ",'%')"))) + 
+  geom_bar(stat="identity")+ # , fill="wheat") + 
+  geom_text(parse=TRUE , position = position_nudge(y=-0.02)) +
   ylim(0,1) +
   labs(
     title = paste0("Overall Attendance Rate: ",myperiod),
@@ -382,9 +382,7 @@ filterCharging %>%
   )
   
 
-cleanCharging %>% filter(programme == "SCM MPhil") %>%
-  group_by(ay) %>%
-  summarise(n())
+
 
 # Hours -------------------------------------------------------------------
 
