@@ -23,7 +23,7 @@ cleanCharging<-chargingDat
 cleanSession<-sessionDat
 
 #need to think more clearly about what dat I actually want here
-# categorisation etc.
+#categorisation etc.
 #need schools
 #event name
 #event duration
@@ -195,9 +195,17 @@ filterEvent<-cleanEvent %>%
 
 # Exploration -------------------------------------------------------------
 
+#let's look at UG training volumes
+filterEvent %>%
+  filter(programme == "Undergraduate") %>%
+  group_by(ay) %>%
+  summarise(sum(hours))
 
 
-
+cleanSession %>%
+  filter(programme == "Undergraduate") %>%
+  group_by(ay) %>%
+  summarise(n() , sum(slot_duration))
 
 # Visuals ---------------------------------------------------------
 
