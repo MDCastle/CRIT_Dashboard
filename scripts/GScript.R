@@ -197,6 +197,26 @@ filterEvent<-cleanEvent %>%
 
 
 
+filterCharging %>%
+  group_by(participant ,  .drop = FALSE) %>%
+  summarise(Bookings = n()) %>%
+  ungroup() %>%
+  group_by( Bookings ,  .drop = FALSE) %>%
+  summarise(Count = n()) %>%
+  # mutate(Cat = case_when(
+  #   Bookings == 1 ~ "1",
+  #   Bookings == 2 ~ "2",
+  #   Bookings >=3 & Bookings <=5 ~ "3-5",
+  #   Bookings >=6 & Bookings <=10 ~ "6-10",
+  #   .default = ">10"
+  # )) %>%
+  # group_by(Cat) %>% view()
+  mutate(Prop = Count / sum(Count) ) %>%
+  ggplot(aes(x=Bookings , y=Prop , fill = Prop)) +
+  geom_bar(stat = "identity" , position = "dodge")
+
+  
+
 # Visuals ---------------------------------------------------------
 
 
@@ -253,6 +273,73 @@ filterCharging %>%
   geom_text(parse = TRUE , position = position_dodge(width=0.9)) + 
   labs(
     title = paste0("Total Bookings: ",myperiod),
+    y = "Bookings",
+    fill = "Academic Year",
+    x = "Participant Type"
+  )
+
+
+
+# Unique Bookings ---------------------------------------------------------
+
+## Total
+filterCharging %>%
+  group_by(ay) %>%
+  distinct(participant , .keep_all = TRUE) %>%
+  filter(session_type == "teaching") %>%
+  group_by(ay) %>%
+  summarise(Bookings=n()) %>%
+  mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
+  ggplot(aes(x=ay , y=Bookings , fill = ay ,label=paste("atop(" , Bookings , "," , "paste(",Change,",'%')" , ")"))) + 
+  geom_bar(stat="identity")+ #"seagreen") +
+  geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
+  labs(
+    title = paste0("Total Unique Bookings: ",myperiod),
+    y = "Bookings",
+    x = "Academic Year"
+  )
+
+
+
+## Cohort vs Open
+filterCharging %>%
+  group_by(ay) %>%
+  distinct(participant , .keep_all = TRUE) %>%
+  filter(session_type == "teaching") %>%
+  mutate(course_type=factor(course_type)) %>%
+  group_by(ay , course_type , .drop = FALSE) %>%
+  summarise(Bookings=n()) %>%
+  ungroup() %>%
+  group_by(course_type) %>%
+  arrange(course_type, ay) %>%
+  mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
+  ggplot(aes(x=course_type , y=Bookings , fill=ay , label=paste("atop(" , Bookings , "," , "paste(",Change,",'%')" , ")"))) +
+  geom_bar(stat="identity" , position = "dodge") + 
+  geom_text(parse = TRUE , position = position_dodge(width=0.9)) +
+  labs(
+    title = paste0("Total Unique Bookings: ",myperiod),
+    y = "Bookings",
+    fill = "Academic Year",
+    x = "Course Type"
+  )
+
+
+## Participant Type
+filterCharging %>%
+  group_by(ay) %>%
+  distinct(participant , .keep_all = TRUE)
+  filter(session_type == "teaching") %>%
+  group_by(ay , charge_status) %>%
+  summarise(Bookings=n()) %>%
+  ungroup() %>%
+  group_by(charge_status) %>%
+  arrange(ay , charge_status) %>%
+  mutate(Change = floor((Bookings/first(Bookings) - 1 )*100)) %>%
+  ggplot(aes(x=charge_status , y=Bookings , fill=ay , label=paste("atop(" , Bookings , "," , "paste(",Change,",'%')" , ")"))) +
+  geom_bar(stat="identity" , position = "dodge") + 
+  geom_text(parse = TRUE , position = position_dodge(width=0.9)) + 
+  labs(
+    title = paste0("Total Unique Bookings: ",myperiod),
     y = "Bookings",
     fill = "Academic Year",
     x = "Participant Type"
