@@ -197,25 +197,7 @@ filterEvent<-cleanEvent %>%
 
 
 
-filterCharging %>%
-  group_by(participant ,  .drop = FALSE) %>%
-  summarise(Bookings = n()) %>%
-  ungroup() %>%
-  group_by( Bookings ,  .drop = FALSE) %>%
-  summarise(Count = n()) %>%
-  # mutate(Cat = case_when(
-  #   Bookings == 1 ~ "1",
-  #   Bookings == 2 ~ "2",
-  #   Bookings >=3 & Bookings <=5 ~ "3-5",
-  #   Bookings >=6 & Bookings <=10 ~ "6-10",
-  #   .default = ">10"
-  # )) %>%
-  # group_by(Cat) %>% view()
-  mutate(Prop = Count / sum(Count) ) %>%
-  ggplot(aes(x=Bookings , y=Prop , fill = Prop)) +
-  geom_bar(stat = "identity" , position = "dodge")
 
-  
 
 # Visuals ---------------------------------------------------------
 
@@ -348,6 +330,50 @@ filterCharging %>%
 
 
 
+# Bookings per participant ------------------------------------------------
+
+
+  
+filterCharging %>%
+  group_by(participant ,  .drop = FALSE) %>%
+  summarise(Bookings = n()) %>%
+  ungroup() %>%
+  group_by( Bookings ,  .drop = FALSE) %>%
+  summarise(Count = n()) %>% 
+  mutate(Prop = Count / sum(Count) ) %>%
+  ggplot(aes(x=Bookings , y=Prop , fill = Prop)) +
+  geom_bar(stat = "identity" , position = "dodge") +
+  labs(
+    title = "Bookings per participant: 22-25",
+    y = "Proportion",
+    x = "No. of Bookings"
+  )
+
+
+filterCharging %>%
+  group_by(participant ,  .drop = FALSE) %>%
+  summarise(Bookings = n()) %>%
+  ungroup() %>%
+  mutate(Cat = case_when(
+    Bookings == 1 ~ "1",
+    Bookings == 2 ~ "2",
+    Bookings >=3 & Bookings <=5 ~ "3-5",
+    Bookings >=6 & Bookings <=10 ~ "6-10",
+    .default = "10+"
+  )) %>%
+  mutate(Cat = factor(Cat , c("1" , "2" , "3-5" , "6-10" , "10+"))) %>%
+  group_by(Cat) %>%
+  summarise(Count = n()) %>% 
+  mutate(Prop = Count / sum(Count) ) %>%
+  ggplot(aes(x=Cat , y=Prop , fill = Prop)) +
+  geom_bar(stat = "identity" , position = "dodge") +
+  labs(
+    title = "Bookings per participant: 22-25",
+    y = "Proportion",
+    x = "No. of Bookings"
+  )
+  
+
 
 # Attendees ---------------------------------------------------------------
 #Total
@@ -471,48 +497,83 @@ filterCharging %>%
 
 
 
-# Hours -------------------------------------------------------------------
+# Teaching Volume -------------------------------------------------------------------
 
-filterEvent %>%
-  filter(category == "cohort" | category == "open") %>%
-  group_by(ay) %>%
-  summarise(total = sum(slots)*8) %>%
-  mutate(Change = floor((total/first(total) - 1 )*100)) %>%
-  ggplot(aes(x=ay , y=total , label=paste("atop(" , total , "," , "paste(",Change,",'%')" , ")"))) +
-  geom_bar(stat = "identity" , fill = "seagreen") +
-  geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
+#By Event
+filterCharging %>%
+  filter(session_type == "teaching") %>%
+  distinct(event_id , .keep_all = TRUE) %>%
+  group_by(ay , .drop=FALSE) %>%
+  summarise(Days = sum(event_duration), Hours = Days*8 , nEvents = n()) %>%
+  ggplot(aes(x=ay , y=nEvents , fill=ay)) + 
+  geom_bar(stat="identity" , position = "dodge") + 
+  geom_text(aes(x=ay , y=nEvents , label = nEvents) , position = position_dodge(width=0.9) , vjust =-0.5) +
+  geom_text(aes(x=ay , y=nEvents , label = paste("(" , Hours , " h)")) , position = position_dodge(width=0.9) , vjust =1.5) +
+  geom_text(aes(x=ay , y=nEvents , label = paste("(" , Days , " d)")) , position = position_dodge(width=0.9) , vjust =3) +
   labs(
-    title = paste0("Total Hours: ",myperiod),
-    y = "Hours",
-    x = "Academic Year"
-  )
-
-filterEvent %>%
-  filter(category == "cohort" | category == "open") %>%
-  group_by(ay) %>%
-  summarise(total = sum(hours)) %>%
-  mutate(Change = floor((total/first(total) - 1 )*100)) %>%
-  ggplot(aes(x=ay , y=total , label=paste("atop(" , total , "," , "paste(",Change,",'%')" , ")"))) +
-  geom_bar(stat = "identity" , fill = "seagreen") +
-  geom_text(parse=TRUE , position = position_stack(vjust=0.5)) +
-  labs(
-    title = paste0("Total Hours: ",myperiod),
-    y = "Hours",
-    x = "Academic Year"
+    title = paste0("Training Volume: ",myperiod),
+    y = "No. of Events",
+    fill = "Academic Year",
+    x = "Course Type"
   )
 
 
-filterEvent %>%
-  filter(category == "cohort" | category == "open") %>%
+filterCharging %>%
+  filter(session_type == "teaching" , course_type!="special event") %>%
   distinct(event_id , .keep_all = TRUE) %>%
-  group_by(ay , category) %>%
-  summarise(n())
-  
-filterEvent %>%
-  filter(category == "cohort" | category == "open") %>%
-  distinct(event_id , .keep_all = TRUE) %>%
-  group_by(ay) %>%
-  view()
+  mutate(course_type=factor(course_type)) %>%
+  group_by(ay, course_type , .drop=FALSE) %>%
+  summarise(Days = sum(event_duration), Hours = Days*8 , nEvents = n()) %>%
+  ggplot(aes(x=course_type , y=nEvents , fill=ay)) + 
+  geom_bar(stat="identity" , position = "dodge") + 
+  geom_text(aes(x=course_type , y=nEvents , label = nEvents) , position = position_dodge(width=0.9) , vjust =-0.5) +
+  geom_text(aes(x=course_type , y=nEvents , label = paste("(" , Hours , " h)")) , position = position_dodge(width=0.9) , vjust =1.5) +
+  geom_text(aes(x=course_type , y=nEvents , label = paste("(" , Days , " d)")) , position = position_dodge(width=0.9) , vjust =3) +
+  labs(
+    title = paste0("Training Volume: ",myperiod),
+    y = "No. of Events",
+    fill = "Academic Year",
+    x = "Course Type"
+  )
 
+
+
+
+#By hours
+filterCharging %>%
+  filter(session_type == "teaching") %>%
+  distinct(event_id , .keep_all = TRUE) %>%
+  group_by(ay , .drop=FALSE) %>%
+  summarise(Days = sum(event_duration), Hours = Days*8 , nEvents = n()) %>%
+  ggplot(aes(x=ay , y=Hours , fill=ay)) + 
+  geom_bar(stat="identity" , position = "dodge") + 
+  geom_text(aes(x=ay , y=Hours , label = paste( Hours , " h")) , position = position_dodge(width=0.9) , vjust =-0.5) +
+  geom_text(aes(x=ay , y=Hours , label = paste("(" , Days , " d)")) , position = position_dodge(width=0.9) , vjust =1.5) +
+  geom_text(aes(x=ay , y=Hours , label = paste("n =" , nEvents )) , position = position_dodge(width=0.9) , vjust =3) +
+  labs(
+    title = paste0("Teaching Volume: ",myperiod),
+    y = "Contact Hours",
+    fill = "Academic Year",
+    x = "Course Type"
+  )
+
+
+filterCharging %>%
+  filter(session_type == "teaching" , course_type!="special event") %>%
+  distinct(event_id , .keep_all = TRUE) %>%
+  mutate(course_type=factor(course_type)) %>%
+  group_by(ay, course_type , .drop=FALSE) %>%
+  summarise(Days = sum(event_duration), Hours = Days*8 , nEvents = n()) %>%
+  ggplot(aes(x=course_type , y=Hours , fill=ay)) + 
+  geom_bar(stat="identity" , position = "dodge") + 
+  geom_text(aes(x=course_type , y=Hours , label = paste( Hours , " h")) , position = position_dodge(width=0.9) , vjust =-0.5) +
+  geom_text(aes(x=course_type , y=Hours , label = paste("(" , Days , " d)")) , position = position_dodge(width=0.9) , vjust =1.5) +
+  geom_text(aes(x=course_type , y=Hours , label = paste("n =" , nEvents )) , position = position_dodge(width=0.9) , vjust =3) +
+  labs(
+    title = paste0("Training Volume: ",myperiod),
+    y = "Contact Hours",
+    fill = "Academic Year",
+    x = "Course Type"
+  )
 
 
